@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 
 @WebServlet(
-		urlPatterns = { "/MiniBookingCtrl"},
+		urlPatterns = { "/BookingCtrl"},
 		initParams = {
 				@WebInitParam(name = "configFile", value = "/WEB-INF/commandList.properties")
 		})

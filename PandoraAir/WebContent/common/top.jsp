@@ -12,7 +12,7 @@
 %>
 <%
 	String contextPath = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
-	String CommandName = "/MiniShopCtrl"; //요청을 위한 url 패턴 이름
+	String CommandName = "/BookingCtrl"; //요청을 위한 url 패턴 이름
 	String MyCtrlByForm = contextPath + CommandName; //폼이 있는 경우에 사용된다. 
 	String MyCtrlCommand = contextPath + CommandName + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
