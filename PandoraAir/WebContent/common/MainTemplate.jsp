@@ -47,7 +47,7 @@ footer {
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
-				<%@ include file="./common/top.jsp"%>
+				<%@ include file="top.jsp"%>
 				<%	
 					String meLoginForm = MyCtrlCommand + "meLoginForm"  ;
 					String meInsertForm = MyCtrlCommand + "meInsertForm"  ;
@@ -55,7 +55,7 @@ footer {
 			</div>
 
 			<div class="col-sm-10">
-				<%@ include file="./common/Login.jsp"%>
+				<%@ include file="Login.jsp"%>
 			</div>
 
 		</div>
