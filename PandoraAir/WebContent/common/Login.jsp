@@ -36,7 +36,7 @@
 							<div class="col-sm-offset-4 col-sm-10">
 								<button type="submit" class="btn btn-success">확인</button>
 								&nbsp;&nbsp;
-								<a href="/PandoraAir/BookingCtrl?command=pdrInsertForm">
+								<a href="/PandoraAir/BookingCtrl?command=pdrMemberInsert">
 									<button type="button" class="btn btn-danger">회원가입</button>
 								</a>
 							</div>

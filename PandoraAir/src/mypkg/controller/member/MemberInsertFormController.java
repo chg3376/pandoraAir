@@ -1,4 +1,4 @@
-package mypkg.controller;
+package mypkg.controller.member;
 
 import java.io.IOException;
 
@@ -7,7 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-	public class pdrInsertFormController implements SuperController {
+import mypkg.controller.SuperController;
+
+	public class MemberInsertFormController implements SuperController {
 
 		@Override
 		public void doProcess(HttpServletRequest request,

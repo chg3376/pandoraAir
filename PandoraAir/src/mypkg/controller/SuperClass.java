@@ -1,7 +1,5 @@
 package mypkg.controller;
 
-import javax.servlet.RequestDispatcher;
-
 public class SuperClass {
 
 	public void GotoPage(String className, String where) {

@@ -1,4 +1,4 @@
-package mypkg.controller;
+package mypkg.controller.member;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
 

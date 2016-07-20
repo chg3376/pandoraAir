@@ -1,4 +1,4 @@
-package mypkg.controller;
+package mypkg.controller.member;
 
 import java.io.IOException;
 
@@ -7,17 +7,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class TempController implements SuperController {
+import mypkg.controller.SuperController;
+
+public class LoginController implements SuperController{
 
 	@Override
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.println( this.getClass() );
-		
-		String url = "/view/sample.jsp";
+
+		String url = "/common/Login.jsp";  
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
+		
 	}
-
+	
 }
-
