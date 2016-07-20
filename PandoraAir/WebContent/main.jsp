@@ -1,3 +1,4 @@
+<%@ include file="./common/top.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,38 +32,56 @@ footer {
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
 	.sidenav {
 		height: auto;
 		padding: 15px;
+		
+	} */
+@media screen and (max-width: 500px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+		
 	}
 	.row.content {
 		height: auto;
+		
 	}
 }
 </style>
+<%
+	
+	//String MyCtrlCommand = (String)request.getAttribute("MyCtrlCommand");
+
+%>
 </head>
 <body>
-
+	<%-- <%@ include file="./common/top.jsp"%> --%>
+	<header></header>
 	<div class="container-fluid">
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
-				<%@ include file="./common/top.jsp"%>
+			<div class="col-sm-2 sidenav" >
+			
+				<jsp:include page="./common/top.jsp"/>
+			
 				<%	
 					String meLoginForm = MyCtrlCommand + "meLoginForm"  ;
 					String meInsertForm = MyCtrlCommand + "meInsertForm"  ;
 				%>	
 			</div>
-
+			<div>
+				
+			</div>
 			<div class="col-sm-10">
-				<%@ include file="./common/Login.jsp"%>
+				<%@ include file="./../view/member/Login.jsp"%>
 			</div>
 
 		</div>
 	</div>
 
 	<footer class="container-fluid">
-		<p>Footer Text</p>
+		<%@ include file="./common/footer.jsp" %>
 	</footer>
 
 </body>

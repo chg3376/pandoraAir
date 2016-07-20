@@ -55,7 +55,7 @@ footer {
 			</div>
 
 			<div class="col-sm-10">
-				<%@ include file="Login.jsp"%>
+				<%-- <%@ include file="Login.jsp"%> --%>
 			</div>
 
 		</div>

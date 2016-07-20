@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 				HttpServletResponse response) throws ServletException, IOException {
 			System.out.println( this.getClass() );
 			
-			String url = "/view/pdrmeInsertForm.jsp";
+			String url = "/view/member/pdrmeInsertForm.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
