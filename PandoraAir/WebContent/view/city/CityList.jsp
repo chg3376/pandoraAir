@@ -1,7 +1,7 @@
 <%@page import="mypkg.model.CityDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../common/top.jsp"%>
+<%@ include file="./../../common/top.jsp"%>
 <%
 	int myoffset = 2;
 	int mywidth = twelve - 2 * myoffset;
@@ -94,29 +94,16 @@
 						<td>${bean.local}</td>
 						<td>${bean.destination}</td>
 						<td>
-							<c:if test="${sessionScope.loginfo.id == bean.writer}"> <!-- 관리자만 수정가능하게 조건 바꿀것 -->
-								<a href="<%=MyCtrlCommand%>boUpdateForm&no=${bean.no}&${requestScope.parameters}">
+							
+								<a href="<%=MyCtrlCommand%>boUpdateForm&no=${bean.city_code}&${requestScope.parameters}">
 									수정
 								</a>
-							</c:if>
-							<c:if test="${sessionScope.loginfo.id != bean.writer}">
-								수정
-							</c:if>
 						</td>
 						<td>
-							<c:if test="${sessionScope.loginfo.id == bean.writer}">
-								<a href="<%=MyCtrlCommand%>boDeleteForm&no=${bean.no}&${requestScope.parameters}">
+							
+								<a href="<%=MyCtrlCommand%>boDeleteForm&no=${bean.city_code}&${requestScope.parameters}">
 									삭제
 								</a>
-							</c:if>
-							<c:if test="${sessionScope.loginfo.id != bean.writer}">
-								삭제
-							</c:if>
-						</td>
-						<td>
-							<a href="<%=MyCtrlCommand%>boReply&no=${bean.no}&${requestScope.parameters}&groupno=${bean.groupno}&orderno=${bean.orderno}&depth=${bean.depth}">
-								답글 
-							</a>
 						</td>
 					</tr>
 				</c:forEach>
