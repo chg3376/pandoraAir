@@ -1,7 +1,5 @@
-<%@ include file="./common/top.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <title>PandoraAir Main</title>
 <meta charset="utf-8">
@@ -15,12 +13,13 @@
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
-	height: 100% px
+	background-color: #FFFFFF;
+	height: 100%;
 }
 
 /* Set gray background color and 100% height */
 .sidenav {
-	background-color: #f1f1f1;
+	background-color: #FFFFFF;
 	height: 100%;
 }
 
@@ -50,33 +49,19 @@ footer {
 	}
 }
 </style>
-<%
-	
-	//String MyCtrlCommand = (String)request.getAttribute("MyCtrlCommand");
-
-%>
 </head>
 <body>
-	<%-- <%@ include file="./common/top.jsp"%> --%>
-	<header></header>
 	<div class="container-fluid">
 		<div class="row content">
-			<div class="col-sm-2 sidenav" >
-			
-				<jsp:include page="./common/top.jsp"/>
-			
-				<%	
-					String meLoginForm = MyCtrlCommand + "meLoginForm"  ;
-					String meInsertForm = MyCtrlCommand + "meInsertForm"  ;
-				%>	
-			</div>
-			<div>
+		
+			<div class="col-sm-2 sidenav">
+				<%@ include file="./common/top.jsp"%>
+
+				<div class="col-sm-10">
+					<%@ include file="./common/Login.jsp"%>
+				</div>
 				
 			</div>
-			<div class="col-sm-10">
-				<%@ include file="./../view/member/Login.jsp"%>
-			</div>
-
 		</div>
 	</div>
 
