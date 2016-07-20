@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+</script>
 </head>
 <body>
 	<div class="container">
@@ -22,7 +24,7 @@
 									data-toggle="tooltip" title="아이디는 3글자 이상 10글자 이하로 넣어 주세요"
 									placeholder="Enter ID">
 							</div>
-						</div>
+						</div>	
 						<div class="form-group">
 							<label class="control-label col-sm-3" for="pwd">Password:</label>
 							<div class="col-sm-6">
@@ -34,7 +36,9 @@
 							<div class="col-sm-offset-4 col-sm-10">
 								<button type="submit" class="btn btn-success">확인</button>
 								&nbsp;&nbsp;
-								<button type="reset" class="btn btn-danger">취소</button>
+								<a href="/PandoraAir/BookingCtrl?command=pdrInsertForm">
+									<button type="button" class="btn btn-danger">회원가입</button>
+								</a>
 							</div>
 						</div>
 					</form>

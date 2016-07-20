@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="./../common/top.jsp"%>
 <%
 	int myoffset = 3 ;
 	int mywidth = 2 * myoffset;
@@ -9,6 +8,12 @@
 	int formright = 9 - formleft ; 
 %>
 <html>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <head>
 	<style type="text/css">
 		.form-group{ margin-bottom : 3px; }
@@ -31,7 +36,7 @@
 				<font color="red"><b>회원 가입</b></font> 페이지입니다.
 			</div>
 			<div class="panel-body sub_container">
-				<form class="form-horizontal" role="form" action="<%=contextPath%>/Insert.me"  method="post">
+				<form class="form-horizontal" role="form" action="/PandoraAir/Insert.me"  method="post">
 					<div class="form-group">
 						<label for="id" class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">아이디</label>
 	        			<div class="col-xs-<%=formright-2%> col-lg-<%=formright-2%>">
@@ -93,7 +98,7 @@
 	        		</div>
 					 -->
 					<div class="form-group">
-						<div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
+						<div class="col-xs-12 col-lg-12" align="center">
 							<button type="submit" class="btn btn-default"><b>회원 가입</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="reset" class="btn btn-default">초기화</button>

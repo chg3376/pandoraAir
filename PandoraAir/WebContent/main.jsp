@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@include file="./common/top.jsp" %>
 <head>
 <title>PandoraAir Main</title>
 <meta charset="utf-8">
@@ -47,15 +47,16 @@ footer {
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
-				<%@ include file="./common/top.jsp"%>
-				<%	
-					String meLoginForm = MyCtrlCommand + "meLoginForm"  ;
-					String meInsertForm = MyCtrlCommand + "meInsertForm"  ;
-				%>	
+			
+			<!-- 여기에 left 부분 들어가야됨 -->
+			<%=contextPath %><br>
+			<%=MyCtrlByForm%><br>
+			<%=MyCtrlCommand %><br>
 			</div>
 
 			<div class="col-sm-10">
 				<%@ include file="./common/Login.jsp"%>
+				<a href="<%=MyCtrlCommand %>pdrInsertForm">하하하하하</a>
 			</div>
 
 		</div>

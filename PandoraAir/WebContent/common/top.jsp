@@ -27,8 +27,7 @@
 	//out.print("idx = " + idx + "<br>");
 	//웹서버의 이미지를 올릴 경로
 	String uploadPath = "/upload/";
-	String uploadedFolder = myurl.substring(0, idx) + contextPath
-			+ uploadPath; //위의 3가지 변수를 가지고 짜집기.
+	String uploadedFolder = myurl.substring(0, idx) + contextPath + uploadPath; //위의 3가지 변수를 가지고 짜집기.
 	//out.print("url = " + myurl + "<br>");
 	//out.print("uri=" + uri + "<br>");
 	//out.print("uploadedFolder = " + uploadedFolder + "<br>");
@@ -61,177 +60,35 @@
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  	<%-- <jsp:include page="top.jsp">
-		<jsp:param name="MyCtrlCommand" value="MyCtrlCommand"/>
-	</jsp:include> --%>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-	
-	
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
 
-		
-			<nav class="navbar navbar-inverse">
-				<div class="container-fluid">
-			
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Pandora Air</a>
-			</div>
-			
-			
-			 <div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="<%=contextPath%>/main.jsp">
-							Home
-						</a>
-					</li>
-						
-					<li>
-						<a href="#" class="dropdown-toggle">
-							<font color='white'>
-								<c:if test="${whologin == 0 }">
-      				      			미로그인
-      				   			</c:if> 
-      				   			
-      				   			<c:if test="${whologin != 0 }">
-          				 			 ${sessionScope.loginfo.name}(${sessionScope.loginfo.id}) 님 로그인
-        						</c:if>
-							</font>
-						</a>
-					</li>
-					
-					
-				<c:if test="${whologin != 0}">
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Pandora Air</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<c:if test="${not empty sessionScope.loginfo}">
+						<a href="<%=MyCtrlCommand%>meLogout"><span class="glyphicon glyphicon-log-in"> 로그 아웃 </span> </a>
+					</c:if>
+				</li>
+			</ul>
+		</div>
 
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							마이 페이지
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li>
-						
-								<c:if test="${whologin == 0}">
-										<a href="<%=MyCtrlCommand%>meInsertForm">회원 가입</a>
-								</c:if> 
-					
-								<c:if test="${whologin != 0}">
-										<a href="#">회원 정보 수정</a>
-								</c:if>
-							</li>
-								
-							<li>
-								<c:if test="${whologin != 0}">
-										<a href="<%=MyCtrlCommand%>meLogout">로그 아웃</a>
-								</c:if>
-							</li>
-						
-							<li>
-								<c:if test="${whologin == 1}">
-											<a href="#">회원 탈퇴</a>
-								</c:if>
-							</li>
-								
-							<li>
-								<c:if test="${whologin == 2}">
-											<a href="<%=MyCtrlCommand%>meList">회원 목록 보기</a>
-								</c:if>
-							</li>
-						
-							<li>
-								<c:if test="${whologin == 1}">
-											<a href="#">회원 상세 보기</a>
-								</c:if>
-							</li>
-						</ul>
-					</li>
-					
-				</c:if>
-				
-					<li class="dropdown">
-					
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						
-							게시물&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-							
-							<b class="caret"></b>
-							
-						</a>
-						
-						<ul class="dropdown-menu dropdown-menu-right">
-						
-							<li>
-								<c:if test="${whologin != 0}">
-									<a href="<%=MyCtrlCommand%>boInsertForm">게시물 등록</a>
-								</c:if>
-							</li>
-								
-							<li>
-								<c:if test="${whologin != 0}">
-									<a href="<%=MyCtrlCommand%>boList">목록 보기</a>
-								</c:if>
-							</li>
-							
-							<li><a href="#">게시물 수정</a></li>
-							<li><a href="#">게시물 삭제</a></li>
-							<li><a href="#">상세 보기</a></li>
-							<li><a href="#">답글 작성</a></li>
-						</ul>
-					</li>
-					
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">항공권 예매<b class="caret"></b></a>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li>
-								<c:if test="${whologin == 2}">
-									<a href="<%=MyCtrlCommand%>prInsertForm">상품 등록</a>
-								</c:if>
-							</li>
-							
-							<li><a href="<%=MyCtrlCommand%>prList">목록 보기</a></li>
-							<li><a href="#">국내 여행</a></li>
-							<li><a href="#">해외 여행</a></li>
-							<li><a href="./../example/detailViewEx01.jsp">상세 보기</a></li>
-						</ul>
-					</li>
-					
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">서비스 안내<b class="caret"></b></a>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li>
-								<c:if test="${whologin != 0}">
-									<a href="#">나의 쇼핑 내역</a>
-								</c:if>
-							</li>
-							
-							<li>
-								<c:if test="${whologin != 0}">
-									<a href="#">장바구니 보기</a>
-								</c:if>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				
-				
-				<ul class="nav navbar-nav navbar-right">
-					<li><c:if test="${empty sessionScope.loginfo}">
-							<a href="<%=MyCtrlCommand%>meLoginForm"><span
-								class="glyphicon glyphicon-log-in"> 로그인 </span> </a>
-						</c:if> <c:if test="${not empty sessionScope.loginfo}">
-							<a href="<%=MyCtrlCommand%>meLogout"><span
-								class="glyphicon glyphicon-log-in"> 로그 아웃 </span> </a>
-						</c:if></li>
-				</ul>
-			
-			</div>
 	</nav>
+	
 	<c:if test="${not empty requestScope.errmsg }">
 		<script type="text/javascript">
 			alert('${requestScope.errmsg}');
