@@ -157,45 +157,69 @@
 				</c:if>
 				
 					<li class="dropdown">
+					
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						
 							게시물&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							
 							<b class="caret"></b>
+							
 						</a>
 						
 						<ul class="dropdown-menu dropdown-menu-right">
-							<li><c:if test="${whologin != 0}">
+						
+							<li>
+								<c:if test="${whologin != 0}">
 									<a href="<%=MyCtrlCommand%>boInsertForm">게시물 등록</a>
-								</c:if></li>
-							<li><c:if test="${whologin != 0}">
+								</c:if>
+							</li>
+								
+							<li>
+								<c:if test="${whologin != 0}">
 									<a href="<%=MyCtrlCommand%>boList">목록 보기</a>
-								</c:if></li>
+								</c:if>
+							</li>
+							
 							<li><a href="#">게시물 수정</a></li>
 							<li><a href="#">게시물 삭제</a></li>
 							<li><a href="#">상세 보기</a></li>
 							<li><a href="#">답글 작성</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">항공권 예매<b class="caret"></b></a>
+						</ul>
+					</li>
+					
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">항공권 예매<b class="caret"></b></a>
 						<ul class="dropdown-menu dropdown-menu-right">
-							<li><c:if test="${whologin == 2}">
+							<li>
+								<c:if test="${whologin == 2}">
 									<a href="<%=MyCtrlCommand%>prInsertForm">상품 등록</a>
-								</c:if></li>
+								</c:if>
+							</li>
+							
 							<li><a href="<%=MyCtrlCommand%>prList">목록 보기</a></li>
 							<li><a href="#">국내 여행</a></li>
 							<li><a href="#">해외 여행</a></li>
 							<li><a href="./../example/detailViewEx01.jsp">상세 보기</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">서비스 안내<b class="caret"></b></a>
+						</ul>
+					</li>
+					
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">서비스 안내<b class="caret"></b></a>
 						<ul class="dropdown-menu dropdown-menu-right">
-							<li><c:if test="${whologin != 0}">
+							<li>
+								<c:if test="${whologin != 0}">
 									<a href="#">나의 쇼핑 내역</a>
-								</c:if></li>
-							<li><c:if test="${whologin != 0}">
+								</c:if>
+							</li>
+							
+							<li>
+								<c:if test="${whologin != 0}">
 									<a href="#">장바구니 보기</a>
-								</c:if></li>
-						</ul></li>
+								</c:if>
+							</li>
+						</ul>
+					</li>
 				</ul>
+				
+				
 				<ul class="nav navbar-nav navbar-right">
 					<li><c:if test="${empty sessionScope.loginfo}">
 							<a href="<%=MyCtrlCommand%>meLoginForm"><span
@@ -207,7 +231,6 @@
 				</ul>
 			
 			</div>
-		</div>
 	</nav>
 	<c:if test="${not empty requestScope.errmsg }">
 		<script type="text/javascript">
