@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@include file="./common/top.jsp" %>
 <head>
 <title>PandoraAir Main</title>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -49,14 +50,15 @@ footer {
 			<div class="col-sm-2 sidenav">
 			
 			<!-- 여기에 left 부분 들어가야됨 -->
-			<%=contextPath %><br>
-			<%=MyCtrlByForm%><br>
-			<%=MyCtrlCommand %><br>
+			<a href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a><br>
+			<a href="<%=MyCtrlCommand%>CityList">도시 목록</a><br>
+			<a href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a><br>
+			<%-- <%=MyCtrlByForm%><br>
+			<%=MyCtrlCommand %><br> --%>
 			</div>
 
 			<div class="col-sm-10">
 				<%@ include file="./common/Login.jsp"%>
-				<a href="<%=MyCtrlCommand %>pdrInsertForm">하하하하하</a>
 			</div>
 
 		</div>
