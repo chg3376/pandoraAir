@@ -1,7 +1,5 @@
-<%@ include file="./common/top.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <title>PandoraAir Main</title>
 <meta charset="utf-8">
@@ -15,12 +13,16 @@
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
+<<<<<<< HEAD
+=======
+	background-color: #FFFFFF;
+>>>>>>> branch 'master' of https://github.com/chg3376/pandoraAir.git
 	height: 100%;
 }
 
 /* Set gray background color and 100% height */
 .sidenav {
-	background-color: #f1f1f1;
+	background-color: #FFFFFF;
 	height: 100%;
 }
 
@@ -50,17 +52,11 @@ footer {
 	}
 }
 </style>
-<%
-	
-	//String MyCtrlCommand = (String)request.getAttribute("MyCtrlCommand");
-
-%>
 </head>
 <body>
-	<%-- <%@ include file="./common/top.jsp"%> --%>
-	<header></header>
 	<div class="container-fluid">
 		<div class="row content">
+<<<<<<< HEAD
 			<div class="col-sm-2 sidenav" >
 			
 				<jsp:include page="./common/top.jsp"/>
@@ -72,6 +68,16 @@ footer {
 					String meInsertForm = MyCtrlCommand + "meInsertForm"  ;
 				%>
 					
+=======
+		
+			<div class="col-sm-2 sidenav">
+				<%@ include file="./common/top.jsp"%>
+
+				<div class="col-sm-10">
+					<%@ include file="./common/Login.jsp"%>
+				</div>
+				
+>>>>>>> branch 'master' of https://github.com/chg3376/pandoraAir.git
 			</div>
 		</div>
 	</div>
