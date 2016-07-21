@@ -180,6 +180,7 @@ public class MemberDao extends SuperDao{
 		return lists;
 	}
 	
+	
 	public Member SelectDataByPk(String id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
