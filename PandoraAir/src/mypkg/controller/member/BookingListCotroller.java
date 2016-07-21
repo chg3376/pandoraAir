@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mypkg.controller.SuperController;
-import mypkg.model.Member;
-import mypkg.model.MemberDao;
+import mypkg.model.BookingList;
+import mypkg.model.BookingList_Dao;
 import mypkg.utility.Paging;
 
 public class BookingListCotroller implements SuperController {
@@ -18,10 +18,10 @@ public class BookingListCotroller implements SuperController {
 	@Override
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		MemberDao mdao = new MemberDao();
+		BookingList_Dao bdao = new BookingList_Dao();
 		String pageNumber = request.getParameter("pageNumber") ;
 		String pageSize = request.getParameter("pageSize") ;
-		int totalCount = mdao.SelectTotalCount(); //1008 ;
+		int totalCount = bdao.SelectTotalCount(); //1008 ;
 		System.out.println( "ÅäÅ»  Ä«¿îÅÍ : " + totalCount);
 				
 		String contextPath = request.getContextPath()  ;
@@ -32,8 +32,8 @@ public class BookingListCotroller implements SuperController {
 		Paging pageInfo = 
 				new Paging(pageNumber, pageSize, totalCount, myurl, mode, keyword) ;
 		
-		List<Member> lists 
-		= mdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow()) ;		
+		List<BookingList> lists 
+		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow()) ;		
 		
 		request.setAttribute("lists", lists);
 		request.setAttribute("pagingHtml", pageInfo.getPagingHtml());
