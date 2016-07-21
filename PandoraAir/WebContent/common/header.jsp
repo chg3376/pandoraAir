@@ -96,18 +96,53 @@
 				</li>
 			</ul>
 			
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav">
+				<li class="navbar">
+					<form role="form">
+						<ul>
+						<li class="navbar" >
+  						<div class="row">
+  							<div class="col-sm-1"><label for="id"><font color="white">ID :  </font></label></div>
+  							<div class="col-sm-3"><input type="text" class="form-control" id="id"></div>
+  							<div class="col-sm-2"><label for="password"><font color="white">Password: </font></label></div>
+  							<div class="col-sm-3"><input type="password" class="form-control" id="password"></div>
+  							<div class="col-sm-3">
+  								<div class="btn-group">
+  									<button type="button" class="btn btn-nav"><b>로그인</b></button>
+ 									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
+ 								</div>
+ 							</div>
+						</div>
+    						
+   							
+   							
+  						</li>
+  						<li>
+  						</li>
+ 						</ul>
+ 						
+					</form>
+
+				</li>
+			
+			</ul>
+			
+			<%-- <ul class="nav navbar-nav navbar-right">
 				<li class="navbar-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">로그인 </a>
 					<ul class="dropdown-menu">
 						<li><%@ include file="./Login.jsp"%></li>
 					</ul>
 				</li>
-			</ul>
+			</ul> --%>
 			
 			
-			<ul class="nav navbar-nav navbar-right">
+			
+			
+			<%-- <ul class="nav navbar-nav navbar-right">
 				<li class="navbar-toggle"><a href="<%=MyCtrlCommand%>main.jsp">회원 가입</a></li>
-			</ul>
+			</ul> --%>
+			
+			
 			
 		</div>			
 		
