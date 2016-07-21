@@ -87,33 +87,26 @@
 			
 		
 			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보<b class="caret"></b></a>
+				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
 					<ul class="dropdown-menu">	
+						<li><a href="">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 삭제</a></li>
 					</ul>
 				</li>
 			</ul>
 			
-			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">예매 리스트<b class="caret"></b></a>
-					<ul class="dropdown-menu">	
-						<li><a href="">예매 정보 확인</a></li>
-					</ul>
-				</li>
-			</ul>
-			
-			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">로그인<b class="caret"></b></a>
-					<ul class="dropdown-menu">	
+			<ul class="nav navbar-nav navbar-right">
+				<li class="navbar-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">로그인 </a>
+					<ul class="dropdown-menu">
 						<li><%@ include file="./Login.jsp"%></li>
 					</ul>
 				</li>
 			</ul>
 			
 			
-			<ul class="nav navbar-nav">
-				<li><a class="navbar-toggle" href="<%=MyCtrlCommand%>main.jsp">회원 가입</a></li>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="navbar-toggle"><a href="<%=MyCtrlCommand%>main.jsp">회원 가입</a></li>
 			</ul>
 			
 		</div>			
