@@ -179,6 +179,73 @@ public class MemberDao extends SuperDao{
 
 		return lists;
 	}
+	public List<BookingList> SelectDataList(int beginRow, int endRow) {
+		//모든 데이터를 조회한다.
+		PreparedStatement pstmt = null ;
+		ResultSet rs = null ;
+
+		String sql = "select id,name,password,salary,hiredate,gender,hobby,job,zipcode,address1,address2,mpoint, ranking "; 
+		sql += " from " ; 
+		sql += " ( " ;
+		sql += " select id,name,password,salary,hiredate,gender,hobby,job,zipcode,address1,address2,mpoint, rank() over( order by id asc ) as ranking " ;
+		sql += " from BookingList  " ;
+		sql += " ) " ;
+		sql += " where ranking between ? and ? " ; 
+		
+		List<BookingList> lists = new ArrayList<BookingList>();
+		try {
+			if( conn == null ){ super.conn = super.getConnection() ; }
+			pstmt = super.conn.prepareStatement(sql) ;			
+			pstmt.setInt(1, beginRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery() ;			
+			while( rs.next() ){
+				BookingList bean = new BookingList();				
+				
+				
+				lists.add( bean ) ;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if( rs != null ){ rs.close(); }
+				if( pstmt != null ){ pstmt.close(); }
+				super.closeConnection(); 
+			} catch (Exception e2) {
+				e2.printStackTrace(); 
+			}
+		}
+		
+		return lists ;
+	}
+	public int SelectTotalCount() {
+		PreparedStatement pstmt = null ;
+		ResultSet rs = null ;				
+		String sql = "select count(*) as cnt from members " ; 
+		int cnt = -99999 ;
+		try {
+			if( this.conn == null ){ this.conn = this.getConnection() ; }			
+			pstmt = this.conn.prepareStatement(sql) ;			 
+			rs = pstmt.executeQuery() ; 
+			
+			if ( rs.next() ) { 
+				cnt = rs.getInt("cnt");
+			}
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally{
+			try {
+				if( rs != null){ rs.close(); } 
+				if( pstmt != null){ pstmt.close(); } 
+				this.closeConnection() ;
+			} catch (Exception e2) {
+				e2.printStackTrace(); 
+			}
+		} 		
+		return cnt  ; 
+	}
 	
 	public Member SelectDataByPk(String id) {
 		PreparedStatement pstmt = null;
