@@ -11,10 +11,10 @@
 	int twelve = 12; //그리드 시스템의 숫자 값
 %>
 <%
-	String contextPath = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
-	String CommandName = "/BookingCtrl"; //요청을 위한 url 패턴 이름
-	String MyCtrlByForm = contextPath + CommandName; //폼이 있는 경우에 사용된다. 
-	String MyCtrlCommand = contextPath + CommandName + "?command=";
+	String contextPath1 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+	String CommandName1 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+	String MyCtrlByForm1 = contextPath1 + CommandName1; //폼이 있는 경우에 사용된다. 
+	String MyCtrlCommand1 = contextPath1 + CommandName1 + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 %>
 <%
@@ -27,7 +27,7 @@
 	//out.print("idx = " + idx + "<br>");
 	//웹서버의 이미지를 올릴 경로
 	String uploadPath = "/upload/";
-	String uploadedFolder = myurl.substring(0, idx) + contextPath + uploadPath; //위의 3가지 변수를 가지고 짜집기.
+	String uploadedFolder = myurl.substring(0, idx) + contextPath1 + uploadPath; //위의 3가지 변수를 가지고 짜집기.
 	//out.print("url = " + myurl + "<br>");
 	//out.print("uri=" + uri + "<br>");
 	//out.print("uploadedFolder = " + uploadedFolder + "<br>");
@@ -67,6 +67,12 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+	function login(){
+		location.href="<%=MyCtrlCommand1%>pdrLogin";
+	}
+</script>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -78,7 +84,7 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a class="navbar-brand" href="<%=MyCtrlCommand%>main.jsp">Pandora Air</a>
+			<a class="navbar-brand" href="<%=MyCtrlCommand1%>main.jsp">Pandora Air</a>
 		</div>
 		
 			
@@ -108,8 +114,8 @@
   							<div class="col-sm-3"><input type="password" class="form-control" id="password"></div>
   							<div class="col-sm-3">
   								<div class="btn-group">
-  									<button type="button" class="btn btn-nav"><b>로그인</b></button>
- 									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
+  									<button type="button" class="btn btn-nav" onclick="login()"><b>로그인</b></button>
+ 									<button type="button" class="btn btn-nav" onclick="logout()"><b>회원가입</b></button>
  								</div>
  							</div>
 						</div>

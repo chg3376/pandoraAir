@@ -1,3 +1,4 @@
+<%@ include file="./common/header.jsp"%>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,6 +6,12 @@
 <title>PandoraAir Main</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
@@ -14,7 +21,7 @@
 /* Set gray background color and 100% height */
 .sidenav {
 	background-color: #f1f1f1;
-	height: 500px;
+	height: 100%;
 }
 
 /* Set black background color, white text and some padding */
@@ -37,15 +44,22 @@ footer {
 </style>
 </head>
 <body>
+
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
-
-				<%@ include file="./common/left.jsp" %>
+			
+			<!-- 여기에 left 부분 들어가야됨 -->
+			<%-- <%@ include file="./common/left.jsp" %> --%>
+			<a href="<%=MyCtrlCommand1%>AirplaneList">비행기 목록</a><br>
+			<a href="<%=MyCtrlCommand1%>CityList">도시 목록</a><br>
+			<a href="<%=MyCtrlCommand1%>ScheduleList">스케줄 목록</a><br>
+			<%-- <%=MyCtrlByForm%><br>
+			<%=MyCtrlCommand %><br> --%>
 			</div>
 
 			<div class="col-sm-10">
-				<%@ include file="./common/Login.jsp"%>
+				<img src="air1.jpg">
 			</div>
 
 		</div>
