@@ -97,9 +97,6 @@
 		
 			
 		<div class="collapse navbar-collapse" id="myNavbar">
-			
-			
-		
 			<ul class="nav navbar-nav">
 				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
 					<ul class="dropdown-menu">	
@@ -145,7 +142,7 @@
   									<button type="submit" class="btn btn-nav"><b>로그인</b></button>
   									</c:if>
   									<c:if test="${whologin!=0}">
-  									<button type="submit" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
+  									<button type="button" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
   									</c:if>
   									<c:if test="${whologin==0}">
  									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
