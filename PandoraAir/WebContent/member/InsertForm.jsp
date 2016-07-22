@@ -16,15 +16,18 @@
     .form-group{ margin-bottom : 3px; }
   </style>
   <script type="text/javascript">
+  	
     function function1(  ){
       var id = document.myform.id.value ;
       if( id.length == 0 ){
         alert('아이디를 입력해 주세요') ;
         document.myform.id.focus() ; 
         return false ;
+      } else {
+      
+    	  var url='<%=MyCtrlCommand%>idcheck&id=' + id ; 
+    	  window.open(url, 'mywin', 'height=150,width=300') ;
       }
-      var url='<%=MyCtrlCommand%>idcheck&id=' + id ; 
-      window.open(url, 'mywin', 'height=150,width=300') ;
     }
     function function2(  ){
       var url='<%=MyCtrlCommand%>meZipcheck' ;     
@@ -39,8 +42,14 @@
       if( isCheck == 'false' ){
         alert('아이디 중복 체크를 우선 해주세용.') ;
         return false ;
-      }      
-    }    
+      }
+      var url='<%=MyCtrlCommand%>totalcheck&id=' + id ; 
+      window.open(url, 'mywin', 'height=150,width=300') ;
+    }   
+    function function5() {
+    	
+    }
+    
   </script>
 </head>
 <body>
