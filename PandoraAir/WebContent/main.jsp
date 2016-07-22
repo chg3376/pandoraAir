@@ -44,6 +44,8 @@ footer {
 	/* .bgset{
 		background-image: url('./image/air1.jpg');
 	} */
+	
+
 
 </style>
 </head>
@@ -54,7 +56,7 @@ footer {
 			<div class="col-sm-2 sidenav">
 			
 			<!-- 여기에 left 부분 들어가야됨 -->
-			<%@ include file="./common/left.jsp" %>
+			<%-- <%@ include file="./common/left.jsp" %> --%>
 			
 			
 			<br>
@@ -69,10 +71,10 @@ footer {
 			</div>
 
 			<div class="col-sm-10 bgset" >
-			
+			<img src="./image/air1.jpg">
 				<div class="container">
   
-  				<img src="./image/air1.jpg">
+  				
  					
  			<!-- <ul class="nav navbar-nav">
 							<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
