@@ -44,6 +44,8 @@ footer {
 	/* .bgset{
 		background-image: url('./image/air1.jpg');
 	} */
+	
+
 
 </style>
 </head>
@@ -53,13 +55,12 @@ footer {
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 			
-			<!-- 여기에 left 부분 들어가야됨 -->
-			<%@ include file="./common/left.jsp" %>
+				<%@ include file="./common/left.jsp" %>
+
 			<br>
 			</div>
 
 			<div class="col-sm-10 bgset" >
-			
 				<div class="container">
   					<img src="./image/air1.jpg">
 				</div>
