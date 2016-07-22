@@ -50,13 +50,29 @@
                background-color : purple ;
        }
 </style>
-<!-- <script type="text/javascript">
-	function test1(){
+
+<script type="text/javascript">
+    function AddItem(Text,Value)
+    {
+        // Create an Option object
+ 
+       
+        var opt = document.createElement("option");
+        
+        // Add an Option object to Drop Down/List Box
+        document.getElementById("DropDownList").options.add(opt);
+        // Assign text and value to Option object
+        opt.text = Text;
+        opt.value = Value;
+               
+    }
+
+/* 	function test1(){
 		/* if(src=="./../../image/localOn.jpg"){
 			document.getElementById("test1").src = "./localOff.jpg";
 		}else{
 			document.getElementById("test1").src = "./localOn.jpg";
-		} */
+		}
 		var a="./localOn.jpg";
 		var b="./localOff.jpg";
 		var c=a;
@@ -66,8 +82,9 @@
 		
 		document.getElementById("test1").src = a;
 		
-	}
-</script> -->
+	} */
+	
+</script>
 </head>
 <body>
  		<!-- <div id= "mydiv" >
@@ -78,7 +95,7 @@
         </div> -->
         
         
-	<div id=""></div>
+
         
         
         

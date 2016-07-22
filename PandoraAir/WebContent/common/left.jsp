@@ -13,16 +13,14 @@
 <html>
 <head>
 <style type="text/css">
-nav ul{
+.leftul{
 	list-style : none;
 	margin-top: 100px;
 	margin-bottom: 150%;
 }
-nav ul li{
+.dropdown-toggle, .dobook{
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-a{
 	font: sans-serif;
 	font-size: x-large;
 }
@@ -38,19 +36,19 @@ a{
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
-		<ul>
+		<ul class="leftul">
 			<c:if test="${whologin==2 }">
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">비행정보<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					
-					<li><a href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
-					<li><a href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
-					<li><a href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li>
+					<li><a class="allList" href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
+					<li><a class="allList" href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
+					<li><a class="allList" href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li>
 				</ul>
 			</li>
 			</c:if>
 			<li>
-				<a href="#">예매 하기</a>
+				<a class="dobook" href="#">예매 하기</a>
 			</li>
 		</ul>
 	</nav>
