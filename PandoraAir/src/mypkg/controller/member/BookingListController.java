@@ -13,7 +13,7 @@ import mypkg.model.BookingList;
 import mypkg.model.BookingList_Dao;
 import mypkg.utility.Paging;
 
-public class BookingListCotroller implements SuperController {
+public class BookingListController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,

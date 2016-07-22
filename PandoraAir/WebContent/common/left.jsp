@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String contextPath = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
 	String CommandName = "/BookingCtrl"; //요청을 위한 url 패턴 이름
@@ -39,15 +39,18 @@ a{
 <body>
 	<nav class="navbar navbar-inverse">
 		<ul>
+			<c:if test="${whologin==2 }">
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">비행정보<span class="caret"></span></a>
 				<ul class="dropdown-menu">
+					
 					<li><a href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
 					<li><a href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
 					<li><a href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li>
 				</ul>
 			</li>
+			</c:if>
 			<li>
-				<a href="#">예매</a>
+				<a href="#">예매 하기</a>
 			</li>
 		</ul>
 	</nav>

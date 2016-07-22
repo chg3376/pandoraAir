@@ -12,7 +12,7 @@ import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
 
-public class LoginFormController implements SuperController{
+public class LoginController implements SuperController{
 
 	@Override
 	public void doProcess(HttpServletRequest request,
@@ -22,6 +22,8 @@ public class LoginFormController implements SuperController{
 		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
+		System.out.println(id);
+		
 		
 		MemberDao mdao = new MemberDao();
 		
@@ -32,10 +34,10 @@ public class LoginFormController implements SuperController{
 		
 		
 		if(bean == null){ //존재하지 않는 아이디
-			url = "/member/meLoginForm.jsp";
+			url = "/main.jsp";
 			msg = "아이디나 비밀번호가 잘 못 되었습니다.";
 			System.out.println("아이디잘못");
-			request.setAttribute("errmsg", msg);
+			//request.setAttribute("errmsg", msg);
 		}else { //존재하는 아이디
 			if(password.equals(bean.getPassword()) ){ //비밀번호 맞음
 				url = "/main.jsp";
@@ -44,7 +46,7 @@ public class LoginFormController implements SuperController{
 				session.setAttribute("loginfo", bean);
 				System.out.println("로그인성공");
 			}else{ //비밀번호 틀림
-				url = "/common/Login.jsp";
+				url = "/main.jsp";
 				msg = "아이디나 비밀번호가 잘 못 되었습니다.";
 				System.out.println("비번틀림");
 				request.setAttribute("errmsg", msg);

@@ -15,7 +15,7 @@ import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
 
-public class InsertCotroller implements SuperController,Validator{
+public class InsertController implements SuperController,Validator{
 
 	private HttpServletRequest request ;
 	private Member bean = null ;

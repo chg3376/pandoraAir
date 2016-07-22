@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mypkg.controller.SuperController;
 
-public class LogoutCotroller implements SuperController {
+public class LogoutController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,

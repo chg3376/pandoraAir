@@ -11,7 +11,7 @@ import mypkg.controller.SuperController;
 import mypkg.model.MemberDao;
 import mypkg.utility.FlowParameters;
 
-public class DeleteCotroller implements SuperController {
+public class DeleteController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,
