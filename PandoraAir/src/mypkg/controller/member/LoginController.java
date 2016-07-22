@@ -12,7 +12,7 @@ import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
 
-public class LoginFormController implements SuperController{
+public class LoginController implements SuperController{
 
 	@Override
 	public void doProcess(HttpServletRequest request,

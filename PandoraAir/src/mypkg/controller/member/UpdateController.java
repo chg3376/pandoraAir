@@ -11,7 +11,7 @@ import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
 
-public class UpdateCotroller implements SuperController {
+public class UpdateController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,

@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mypkg.controller.SuperController;
-import mypkg.model.BookingList;
+import mypkg.model.BookingListJoin;
 import mypkg.model.BookingList_Dao;
 import mypkg.utility.Paging;
 
-public class BookingListCotroller implements SuperController {
+public class BookingListController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,
@@ -32,7 +32,7 @@ public class BookingListCotroller implements SuperController {
 		Paging pageInfo = 
 				new Paging(pageNumber, pageSize, totalCount, myurl, mode, keyword) ;
 		
-		List<BookingList> lists 
+		List<BookingListJoin> lists 
 		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow()) ;		
 		
 		request.setAttribute("lists", lists);
