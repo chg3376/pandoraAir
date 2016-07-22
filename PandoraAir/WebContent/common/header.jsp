@@ -67,6 +67,13 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	.logoloc{
+		margin-top: -30px;
+	}
+
+</style>
+
 <script type="text/javascript">
 	function logout(){
 		location.href="<%=MyCtrlCommand1%>pdrLogout";
@@ -85,7 +92,7 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a class="navbar-brand" href="<%=MyCtrlCommand1%>main.jsp"><img src="image/pandora.jpg"></a>
+			<a href="<%=MyCtrlCommand1%>main.jsp"><img src="image/pandora.jpg"></a>
 		</div>
 		
 			

@@ -44,6 +44,8 @@ footer {
 	/* .bgset{
 		background-image: url('./image/air1.jpg');
 	} */
+	
+
 
 </style>
 </head>
@@ -53,39 +55,14 @@ footer {
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 			
-			<!-- 여기에 left 부분 들어가야됨 -->
-			<%@ include file="./common/left.jsp" %>
-			
-			
+				<%@ include file="./common/left.jsp" %>
+
 			<br>
-			<a href="<%=MyCtrlCommand1%>AirplaneList">비행기 목록</a><br>
-			<a href="<%=MyCtrlCommand1%>CityList">도시 목록</a><br>
-			<a href="<%=MyCtrlCommand1%>ScheduleList">스케줄 목록</a><br>
-			<%-- <a href="<%=MyCtrlCommand1%>bookingForm">예매 하기</a><br> --%>
-			
-			
-			<%-- <%=MyCtrlByForm%><br>
-			<%=MyCtrlCommand %><br> --%>
 			</div>
 
 			<div class="col-sm-10 bgset" >
-			
 				<div class="container">
-  
-  				<img src="./image/air1.jpg">
- 					
- 			<!-- <ul class="nav navbar-nav">
-							<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
-						<ul class="dropdown-menu">	
-						
-						<li><a href="">예매정보 확인</a></li>
-						<li><a href="">회원정보 수정</a></li>
-						<li><a href="">회원정보 탈퇴</a></li>
-						
-					</ul>
-				</li>
-			</ul> -->
-  					
+  					<img src="./image/air1.jpg">
 				</div>
 				
 			</div>
