@@ -11,7 +11,7 @@
 	<div class="container">
 		<p align="center">hong은 사용가능한 아이디입니다</p>
 		<div class="row" align="center">
-			<button class="btn btn-primary" type="button" onClick="window.open('','_self').close();">
+			<button class="btn btn-primary" type="button" onClick="window.close()">
 				닫&nbsp;&nbsp;기
 			</button>
 		</div>
