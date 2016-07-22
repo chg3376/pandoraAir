@@ -50,7 +50,7 @@ public class BookingList_Dao extends SuperDao{
 		}
 		return cnt;
 	}
-	public List<BookingListJoin> SelectDataList(int beginRow, int endRow) {
+	public List<BookingListJoin> SelectDataList(int beginRow, int endRow,String name) {
 		//모든 데이터를 조회한다.
 		PreparedStatement pstmt = null ;
 		ResultSet rs = null ;
@@ -69,7 +69,12 @@ public class BookingList_Dao extends SuperDao{
 			pstmt = super.conn.prepareStatement(sql) ;			
 			rs = pstmt.executeQuery() ;			
 			while( rs.next() ){
-				BookingListJoin bean = new BookingListJoin();				
+				BookingListJoin bean = new BookingListJoin();
+				if(name.equals(rs.getString("name"))){
+					
+				}else{
+					break;
+				}
 				bean.setAplane_name(rs.getString("aplane_name"));
 				bean.setArrival_time(rs.getString("arrival_time"));
 				bean.setC_code(rs.getString("c_code"));

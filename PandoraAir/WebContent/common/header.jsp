@@ -11,10 +11,10 @@
 	int twelve = 12; //그리드 시스템의 숫자 값
 %>
 <%
-	String contextPath = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
-	String CommandName = "/BookingCtrl"; //요청을 위한 url 패턴 이름
-	String MyCtrlByForm = contextPath + CommandName; //폼이 있는 경우에 사용된다. 
-	String MyCtrlCommand = contextPath + CommandName + "?command=";
+	String contextPath1 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+	String CommandName1 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+	String MyCtrlByForm1 = contextPath1 + CommandName1; //폼이 있는 경우에 사용된다. 
+	String MyCtrlCommand1 = contextPath1 + CommandName1 + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 %>
 <%
@@ -27,7 +27,7 @@
 	//out.print("idx = " + idx + "<br>");
 	//웹서버의 이미지를 올릴 경로
 	String uploadPath = "/upload/";
-	String uploadedFolder = myurl.substring(0, idx) + contextPath + uploadPath; //위의 3가지 변수를 가지고 짜집기.
+	String uploadedFolder = myurl.substring(0, idx) + contextPath1 + uploadPath; //위의 3가지 변수를 가지고 짜집기.
 	//out.print("url = " + myurl + "<br>");
 	//out.print("uri=" + uri + "<br>");
 	//out.print("uploadedFolder = " + uploadedFolder + "<br>");
@@ -67,6 +67,13 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+	function logout(){
+		location.href="<%=MyCtrlCommand1%>pdrLogout";
+	}
+
+</script>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -78,7 +85,7 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a class="navbar-brand" href="<%=MyCtrlCommand%>main.jsp">Pandora Air</a>
+			<a class="navbar-brand" href="<%=MyCtrlCommand1%>main.jsp"><img src="image/pandora.jpg"></a>
 		</div>
 		
 			
@@ -89,27 +96,53 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
 					<ul class="dropdown-menu">	
+						<c:if test="${whologin==1}">
 						<li><a href="">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
-						<li><a href="">회원정보 삭제</a></li>
+						<li><a href="">회원정보 탈퇴</a></li>
+						</c:if>
 					</ul>
 				</li>
 			</ul>
 			
 			<ul class="nav navbar-nav">
+					<li class="navbar">
+						<a href="#" class="dropdown-toggle">
+							<font color='white'>
+								<c:if test="${whologin==0}">
+								</c:if>
+								<c:if test="${whologin!=0}">
+									안녕하세요 <font color="#ffffb3"><b>${sessionScope.loginfo.name}(${sessionScope.loginfo.id})</b></font> 님 
+								</c:if>
+							</font>
+						</a>
+					</li>
+			</ul>
+			
+			<ul class="nav navbar-nav">
 				<li class="navbar">
-					<form role="form">
+					<form role="form" action="<%=MyCtrlByForm1%>" method="post">
+					<input type="hidden" name="command" value="pdrLogin">
 						<ul>
 						<li class="navbar" >
   						<div class="row">
+  							<c:if test="${whologin==0 }">
   							<div class="col-sm-1"><label for="id"><font color="white">ID :  </font></label></div>
-  							<div class="col-sm-3"><input type="text" class="form-control" id="id"></div>
+  							<div class="col-sm-3"><input type="text" class="form-control" id="id" name="id" value="Aasd1212"}></div>
   							<div class="col-sm-2"><label for="password"><font color="white">Password: </font></label></div>
-  							<div class="col-sm-3"><input type="password" class="form-control" id="password"></div>
+  							<div class="col-sm-3"><input type="password" class="form-control" id="password" name="password" value="1234"></div>
+  							</c:if>
   							<div class="col-sm-3">
-  								<div class="btn-group">
-  									<button type="button" class="btn btn-nav"><b>로그인</b></button>
+  								<div class="btn-group-xs">
+  									<c:if test="${whologin==0}">
+  									<button type="submit" class="btn btn-nav"><b>로그인</b></button>
+  									</c:if>
+  									<c:if test="${whologin!=0}">
+  									<button type="submit" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
+  									</c:if>
+  									<c:if test="${whologin==0}">
  									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
+ 									</c:if>
  								</div>
  							</div>
 						</div>

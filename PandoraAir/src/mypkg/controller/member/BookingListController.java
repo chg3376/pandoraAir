@@ -19,6 +19,7 @@ public class BookingListController implements SuperController {
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookingList_Dao bdao = new BookingList_Dao();
+		String name = request.getParameter("name");
 		String pageNumber = request.getParameter("pageNumber") ;
 		String pageSize = request.getParameter("pageSize") ;
 		int totalCount = bdao.SelectTotalCount(); //1008 ;
@@ -33,7 +34,7 @@ public class BookingListController implements SuperController {
 				new Paging(pageNumber, pageSize, totalCount, myurl, mode, keyword) ;
 		
 		List<BookingListJoin> lists 
-		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow()) ;		
+		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow(),name) ;		
 		
 		request.setAttribute("lists", lists);
 		request.setAttribute("pagingHtml", pageInfo.getPagingHtml());

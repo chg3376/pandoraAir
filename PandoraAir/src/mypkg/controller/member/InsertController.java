@@ -6,14 +6,11 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.PropertyException;
-import javax.xml.bind.ValidationEventHandler;
-import mypkg.utility.Validator;
 
 import mypkg.controller.SuperController;
 import mypkg.model.Member;
 import mypkg.model.MemberDao;
+import mypkg.utility.Validator;
 
 public class InsertController implements SuperController,Validator{
 
@@ -25,7 +22,7 @@ public class InsertController implements SuperController,Validator{
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
         this.request = request ; 
- 
+
 		bean  = new Member();		
 		bean.setId( request.getParameter("id") );
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != "" ){

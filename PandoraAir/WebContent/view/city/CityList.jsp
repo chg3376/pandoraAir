@@ -1,12 +1,24 @@
 <%@page import="mypkg.model.CityDao"%>
+<%@ page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/top.jsp"%>
+<%
+String contextPath2 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+String CommandName2 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+String MyCtrlByForm2 = contextPath2 + CommandName2; //폼이 있는 경우에 사용된다. 
+String MyCtrlCommand2 = contextPath2 + CommandName2 + "?command=";
+//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
+%>
+<%
+	String pattern2 = "###,###";
+	DecimalFormat df2 = new DecimalFormat(pattern2);
+	int twelve2 = 12; //그리드 시스템의 숫자 값
+%>
 <%
 	int myoffset = 2;
-	int mywidth = twelve - 2 * myoffset;
+	int mywidth = twelve2 - 2 * myoffset;
 	int formleft = 3;
-	int formright = twelve - formleft;
+	int formright = twelve2 - formleft;
 	int mysearch = 2;
 	//int label = 3 ; //양식의 왼쪽에 보여지는 라벨의 너비 
 	//int content = twelve - label ; //우측의 내용 입력(input, select, textarea)의 너비
@@ -26,7 +38,7 @@
 </style>
 <script type="text/javascript">
 	function writeForm(){
-			location.href='<%=MyCtrlCommand%>boInsertForm';
+			location.href='<%=MyCtrlCommand2%>boInsertForm';
 	}
 	function search(){
 		if( $('#mode').val() == '-' ){
@@ -40,7 +52,7 @@
 	function searchAll(){
 		//$('#mode').val('-');
 		//$('#keyword').val('');
-		location.href='<%=MyCtrlCommand%>boList';
+		location.href='<%=MyCtrlCommand2%>boList';
 	}
 </script>
 </head>
@@ -55,7 +67,7 @@
 			<table class="table table-striped table-hover">
 				<thead>
 				<td colspan="10" align="center">
-						<form class="form-inline" role="form" name="myform" action="<%=MyCtrlByForm%>boList" method="get">
+						<form class="form-inline" role="form" name="myform" action="<%=MyCtrlByForm2%>boList" method="get">
 							<div class="form-group">
 								<select class="form-control" name="mode" id="mode">
 									<option value="all" selected="selected">-- 선택하세요---------
@@ -95,13 +107,13 @@
 						<td>${bean.destination}</td>
 						<td>
 							
-								<a href="<%=MyCtrlCommand%>boUpdateForm&no=${bean.city_code}&${requestScope.parameters}">
+								<a href="<%=MyCtrlCommand2%>boUpdateForm&no=${bean.city_code}&${requestScope.parameters}">
 									수정
 								</a>
 						</td>
 						<td>
 							
-								<a href="<%=MyCtrlCommand%>boDeleteForm&no=${bean.city_code}&${requestScope.parameters}">
+								<a href="<%=MyCtrlCommand2%>boDeleteForm&no=${bean.city_code}&${requestScope.parameters}">
 									삭제
 								</a>
 						</td>
