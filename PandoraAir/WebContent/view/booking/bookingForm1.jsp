@@ -319,7 +319,7 @@
         
         
    <div class="container">
-	<div class="collapse navbar-collapse" style=" width: 430px;">
+   <div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
   		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="국내선">
 		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="국제선">

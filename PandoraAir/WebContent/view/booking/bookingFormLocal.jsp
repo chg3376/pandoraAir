@@ -52,6 +52,7 @@
 
 </script>
 <style type="text/css">
+
     .mw-ui-button {
         font-family: inherit;
         font-size: 1em;
