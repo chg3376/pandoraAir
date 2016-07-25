@@ -26,36 +26,14 @@
 </style>
 <script type="text/javascript">
      
-    function function1(  ){
-      var id = document.myform.id.value ;
-      if( id.length == 0 ){
-        alert('아이디를 입력해 주세요') ;
-        document.myform.id.focus() ; 
-        return false ;
-      }else{
-         var url='<%=MyCtrlCommand1%>idCheck&id=' + id ; 
-         window.open(url, 'mywin', 'height=150,width=300') ;
-      }
-    }
-    function function2(  ){
-      var url='<%=MyCtrlCommand1%>meZipcheck' ;     
-      window.open(url, 'mywin', 'height=600,width=720,status=yes,scrollbars=yes,resizable=no') ;      
-    }
-    function function3(  ){
-      document.myform.isCheck.value = false ;      
-    }
-    function checkForm(  ){
+    function checkForm(){
       var isCheck = document.myform.isCheck.value ;
       var email = document.myform.email.value ;
       var lnum =  document.myform.lnum.value;
       var name = document.myform.name.value ;
       var password = document.myform.password.value ;
      var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-      //alert( isCheck ) ;
-      if( isCheck == 'false' ){
-        alert('아이디 중복 체크를 우선 해주세용.') ;
-        return false ;
-      }else if(name.length == 0){
+      if(name.length == 0){
          alert('이름을 입력해 주세요') ;
           document.myform.name.focus() ; 
           return false ;
@@ -67,14 +45,10 @@
          alert("잘못된 이메일 형식입니다.");
           document.myform.email.focus() ; 
           return false ;
-      }else{
-         ale
-         var url='<%=MyCtrlCommand1%>pdrInsert&id=' + id + '&name=' + name
-					+ '&password=' + password + '&email=' + email + '&isCheck='
-					+ isCheck + '&lnum' + lnum;
-			window.open(url, 'mywin', 'height=150,width=300');
-		}
-
+      }
+	}
+    function toMain(){
+		location.href="<%=MyCtrlCommand1%>pdrmain";
 	}
 </script>
 </head>
@@ -88,29 +62,25 @@
 
 		<div id="main_container" align="center"
 			class="container col-xs-offset-<%=myoffset%> col-lg-offset-<%=myoffset%> col-xs-<%=mywidth%> col-lg-<%=mywidth%>">
-			<h2>회원 가입 하기</h2>
+			<h2>회원 수정 하기</h2>
 			<div class="panel panel-primary sub_container">
 				<div class="panel-heading" align="left">
-					<font color="red"><b>회원 가입</b></font> 페이지입니다.
+					<font color="red"><b>회원 정보 수정</b></font> 페이지입니다.
 				</div>
 				<div class="panel-body sub_container">
 					<form id="myform" name="myform" class="form-horizontal" role="form"
 						action="<%=MyCtrlByForm1%>" method="post">
-						<input type="hidden" name="command" value="pdrInsert"> <input
-							type="hidden" name="isCheck" value="false"> <input
+						<input type="hidden" name="command" value="pdrMemberUpdate">
+						<input type="hidden" name="isCheck" value="true"> <input
 							type="hidden" name="mpoint" value="5">
 						<div class="form-group">
 							<label for="id"
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">아이디</label>
 							<div class="col-xs-<%=formright - 2%> col-lg-<%=formright - 2%>">
 								<input type="text" name="id" id="id" class="form-control"
-									placeholder="아이디" value="${requestScope.bean.id}"
-									onkeyup="function3();"> <span class="err">${errid}</span>
-							</div>
-							<div class="col-xs-<%=2%> col-lg-<%=2%>" align="left">
-								<input type="button" class="btn btn-info" value="중복 검사"
-									onclick="function1();">
-
+									value="${requestScope.bean.id}" readonly="readonly"> <span
+									class="err">${errid}</span> <input type="hidden" name="id"
+									id="id" class="form-control" value="${requestScope.bean.id}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -118,8 +88,7 @@
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">이름</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="text" name="name" id="name" class="form-control"
-									placeholder="이름" value="${requestScope.bean.name}"> <span
-									class="err">${errname}</span>
+									value="${requestScope.bean.name}"> <span class="err">${errname}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -129,7 +98,8 @@
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="password" name="password" id="password"
 									class="form-control" placeholder="비밀 번호를 넣어 주셔요"
-									value="${requestScope.password}"> <span class="err">${errpassword}</span>
+									value="${requestScope.bean.password}"> <span
+									class="err">${errpassword}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -138,8 +108,7 @@
 								번호</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="text" name="lnum" id="lnum" class="form-control"
-									placeholder="니 주민번호 구글에서 30원" value="${requestScope.password}">
-								<span class="err">${errlnum}</span>
+									value="${requestScope.bean.lnum}"> <span class="err">${errlnum}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -148,8 +117,7 @@
 								번호</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="text" name="phone" id="phone" class="form-control"
-									placeholder="전화번호 적어주세요" value="${requestScope.bean.password}">
-								<span class="err">${errphone}</span>
+									value="${requestScope.bean.phone}"> <span class="err">${errphone}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -157,18 +125,18 @@
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">이메일</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="text" name="email" id="email" class="form-control"
-									placeholder="이메일 적어라" value="${requestScope.bean.password}">
-								<span class="err">${erremail}</span>
+									value="${requestScope.bean.email}"> <span class="err">${erremail}</span>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
-								<button type="submit" class="btn btn-default">
-									<b>회원 가입</b>
+								<button type="submit" class="btn btn-default"
+									onclick="checkForm()">
+									<b>수정하기</b>
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="reset" class="btn btn-default">초기화</button>
+								<button type="reset" class="btn btn-default" onclick="toMain()">취소</button>
 							</div>
 						</div>
 					</form>

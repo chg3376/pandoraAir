@@ -41,7 +41,7 @@ public class InsertController implements SuperController,Validator{
 		
 		String url = "";
 		if ( this.validate() == false ) {
-			url = "/main.jsp";  
+			url = "/member/InsertForm.jsp";  
 			this.request.setAttribute("bean", bean);
 		}else{
 			url = "/main.jsp";
