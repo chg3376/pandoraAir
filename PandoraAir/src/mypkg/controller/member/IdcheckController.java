@@ -24,7 +24,7 @@ public class IdcheckController implements SuperController{
       request.setAttribute("message", id + "은(는) 이미 사용중인 아이디입니다.") ;
       request.setAttribute("isCheck", false) ;
     }
-    String url = "/user/idCheck.jsp";  
+    String url = "/member/idCheck.jsp";  
     RequestDispatcher dispatcher = request.getRequestDispatcher(url);
     dispatcher.forward(request, response);
   }

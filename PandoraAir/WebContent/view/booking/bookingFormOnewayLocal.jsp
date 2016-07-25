@@ -27,20 +27,12 @@
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html style="width: 500px;">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script src="./common/js/jquery-latest.js"></script>
-<link rel="stylesheet" type="text/css" href="./templates/default/js/ui.datepicker/css/smoothness/jquery-ui-1.7.2.custom.css">
-<script type="text/javascript" src="./templates/default/js/ui.datepicker/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
-<script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
-<script type="text/javascript"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 <link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
 
 <style type="text/css">
@@ -80,10 +72,10 @@ color: #fff !important;
 
 
 </style>
+<script type="text/javascript">
 </script>
 </head>
 <body>
- 			
 
 			<div class="panel-body sub_container">
 				<form id="myform" name="myform" class="form-horizontal" action="<%=MyCtrlByFormBF%>" method="post">
@@ -92,19 +84,24 @@ color: #fff !important;
 					<div class="form-group">
 	        			<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-1" id="section1-1" style=" width: 352px; height: 32px;">
+	            				
 								<option value="인천" selected="selected">인천
 								<option value="김해">김해
 								<option value="제주">제주
+								
 							</select>
 	        			</div>
 	        		</div>
 	        		
 	        		<div class="form-group">
+	        		
 	        		<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-2" id="section1-2" style=" width: 352px; height: 32px;">
-								<option value="도쿄" selected="selected">도쿄
-								<option value="베이징">베이징
-								<option value="마닐라">마닐라
+	            				<c:if test="${document.getElementById('section1-1') == document.get}">
+								<option value="인천" selected="selected">인천
+								<option value="김해">김해
+								<option value="제주">제주
+								</c:if>
 							</select>
 	        			</div>
 	        		</div>
@@ -129,13 +126,24 @@ color: #fff !important;
 					
 					<div class="form-group">
 						<div class="col-xs-<%=twelveBF%> col-lg-<%=twelveBF%>" align="center">
-							<button type="submit" class="btn btn-default"><b>다음 페이지</b></button>
+							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>다음 페이지</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="reset" class="btn btn-default">초기화</button>
 						</div>
 					</div>
+					
+
+					
 				</form>
 			</div>
+	
+        
+        
+
+        
+        
+        
+        
 
 </body>
 </html>

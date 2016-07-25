@@ -42,7 +42,7 @@
 				<ul class="dropdown-menu">
 					<li><a class="allList" href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
 					<li><a class="allList" href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
-					<li><a class="allList" href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li>
+					<li><a class="allList" href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li><!-- bookingList -->
 				</ul>
 			</li>
 			</c:if>
