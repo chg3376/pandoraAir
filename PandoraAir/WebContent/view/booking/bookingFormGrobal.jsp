@@ -11,7 +11,7 @@
 		
   	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html  style="width: 500px;">
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,14 +31,14 @@
 		
 	}	
 	
-	function goto1(){
+	function gotoGro1(){
 		document.getElementById('b1').className += ' on';
 		
-		location.href="<%=geturlGro.substring(0, 58)%>.jsp?menu1=2&menu2=1";
+		location.href="<%=geturlGro.substring(0, 33)%>main.jsp?menu1=2&menu2=1";
 	}
-	function goto2(){
+	function gotoGro2(){
 		
-		location.href="<%=geturlGro.substring(0, 58)%>.jsp?menu1=2&menu2=2";
+		location.href="<%=geturlGro.substring(0, 33)%>main.jsp?menu1=2&menu2=2";
 	}
 
 
@@ -251,14 +251,17 @@
 </style>
 </head>
 <body>
-
-	<img alt="??!" src="./section_select.jpg">
+	
+	
 
  	<div class="container">
 	<div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="편도">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="왕복">
+  		
+  		<img alt="??!" src="<%=geturlGro.substring(0, 33)%>view/booking/section_select.jpg">
+		<label>국제선</label><br>
+  		<input class="mw-ui-button" type="button" onclick="gotoGro1()" id="b1" value="편도">
+		<input class="mw-ui-button" type="button" onclick="gotoGro2()" id="b2" value="왕복">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->
@@ -272,11 +275,11 @@
 		if(menuGro != null) {
 			if(menuGro.equals("1")) {
 	%>
-				<%@ include file="bookingFormOneway.jsp"%>
+				<%@ include file="bookingFormOnewayGrobal.jsp"%>
 	<%
 			} else if(menuGro.equals("2")) {
 	%>
-				<%@ include file="bookingFormTwoway.jsp"%>
+				<%@ include file="bookingFormTwowayGrobal.jsp"%>
 	<%
 			}
 		}

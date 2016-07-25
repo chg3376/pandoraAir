@@ -5,13 +5,8 @@
   		StringBuffer geturl = request.getRequestURL();
   	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html style="width: 500px;">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
 <style type= "text/css" >
@@ -57,7 +52,7 @@
        }
 </style>
  <script type="text/javascript">
-	function test1(){
+	/* function test1(){
 		var img = document.getElementById('test1');
 
 		if(img.src.indexOf('localOff') == -1) {
@@ -92,19 +87,20 @@
 		
 		div.style.visibility = "hidden";
 	}
-}
+} */
 	
 	
 	function goto1(){
 		
-		location.href="<%=geturl%>?menu1=1";
+		location.href="<%=geturl%>?menu1=1&menu2=1";
 	}
 	function goto2(){
-		location.href="<%=geturl%>?menu1=2";
+		location.href="<%=geturl%>?menu1=2&menu2=1";
 	}
 	
 </script>
 <style type="text/css">
+
     .mw-ui-button {
         font-family: inherit;
         font-size: 1em;
@@ -313,10 +309,10 @@
 </style>
 </head>
 <body>  
-   <div class="container">
-   <div class="collapse navbar-collapse" style=" width: 430px;">
-  		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="국내선">
+   <div >
+   <div  style=" width: 430px;">
+  		<ul  style=" margin-top: 5px;">
+  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="국내선" style="">
 		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="국제선">
 		
 		
@@ -338,7 +334,5 @@
 	</ul>
 	</div>
 	</div>
-       
-
 </body>
 </html>
