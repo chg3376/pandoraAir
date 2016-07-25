@@ -106,6 +106,11 @@
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 탈퇴</a></li>
 						</c:if>
+						<c:if test="${whologin==2}">
+						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
+						<li><a href="">회원정보 수정</a></li>
+						<li><a href="">회원정보 탈퇴</a></li>
+						</c:if>
 					</ul>
 				</li>
 			</ul>
