@@ -23,9 +23,8 @@
         alert('아이디를 입력해 주세요') ;
         document.myform.id.focus() ; 
         return false ;
-      } else {
-      	
-    	  var url='<%=MyCtrlCommand%>idcheck&id=' + id ; 
+      }else{
+    	  var url='<%=MyCtrlCommand%>idCheck&id=' + id ; 
     	  window.open(url, 'mywin', 'height=150,width=300') ;
       }
     }
@@ -39,20 +38,32 @@
     function checkForm(  ){
       var isCheck = document.myform.isCheck.value ;
       var email = document.myform.email.value ;
+      var lnum =  document.myform.lnum.value;
+      var name = document.myform.name.value ;
+      var password = document.myform.password.value ;
  	 var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
       //alert( isCheck ) ;
       if( isCheck == 'false' ){
         alert('아이디 중복 체크를 우선 해주세용.') ;
         return false ;
-      }
-      if( regex.test(email) === false) {
+      }else if(name.length == 0){
+    	  alert('이름을 입력해 주세요') ;
+          document.myform.name.focus() ; 
+          return false ;
+      }else if(password.length == 0){
+    	  alert('비밀번호를 입력해 주세요') ;
+          document.myform.password.focus() ; 
+          return false ;
+      }else if( regex.test(email) === false) {
    	   alert("잘못된 이메일 형식입니다.");
           document.myform.email.focus() ; 
           return false ;
-      var url='<%=MyCtrlCommand%>totalcheck&id=' + id ; 
-      window.open(url, 'mywin', 'height=150,width=300') ;
-    }   
-  
+      }else{
+    	  ale
+    	  var url='<%=MyCtrlCommand%>pdrInsert&id=' + id +'&name='+name+'&password='+password+'&email='+email+'&isCheck='+isCheck+'&lnum'+lnum ; 
+          window.open(url, 'mywin', 'height=150,width=300') ;  
+      }
+
     }
     
   </script>
@@ -79,26 +90,28 @@
                 </div>
                 <div class="col-xs-<%=2%> col-lg-<%=2%>" align="left">
                     <input type="button" class="btn btn-info" value="중복 검사" onclick="function1();"> 
+     
                 </div>
               </div>            
           <div class="form-group">
             <label for="name" class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">이름</label>
                 <div class="col-xs-<%=formright%> col-lg-<%=formright%>">
                     <input type="text" name="name" id="name" class="form-control" placeholder="이름" value="${requestScope.bean.name}" >
+                   
                     <span class="err">${errname}</span> 
                 </div>
               </div>
           <div class="form-group">
             <label for="password" class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">비밀 번호</label>
                 <div class="col-xs-<%=formright%> col-lg-<%=formright%>">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="비밀 번호를 넣어 주셔요" value="${requestScope.bean.password}" >
+                    <input type="password" name="password" id="password" class="form-control" placeholder="비밀 번호를 넣어 주셔요" value="${requestScope.password}" >
                     <span class="err">${errpassword}</span>  
                 </div>
               </div>
 <div class="form-group">
             <label for="lnum" class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">주민 번호</label>
                 <div class="col-xs-<%=formright%> col-lg-<%=formright%>">
-                    <input type="text" name="lnum" id="lnum" class="form-control" placeholder="니 주민번호 구글에서 30원" value="${requestScope.bean.password}" >
+                    <input type="text" name="lnum" id="lnum" class="form-control" placeholder="니 주민번호 구글에서 30원" value="${requestScope.password}" >
                     <span class="err">${errlnum}</span>  
                 </div>
               </div>
@@ -119,7 +132,7 @@
 
           <div class="form-group">
             <div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
-              <button type="submit" class="btn btn-default" onclick="return checkForm();"><b>회원 가입</b></button>
+              <button type="button" class="btn btn-default" onclick="return checkForm();"><b>회원 가입</b></button>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <button type="reset" class="btn btn-default">초기화</button>
             </div>

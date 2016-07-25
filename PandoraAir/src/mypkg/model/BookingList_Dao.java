@@ -65,9 +65,8 @@ public class BookingList_Dao extends SuperDao{
 		boolean adminSwitch = true;	
 		
 		//if(id==null || "".equals(id)) sql = "select rownum from dual";
-		if(name!=null && !"包府磊".equals(name)) {
+		if(name!=null && name.equals("包府磊")) {
 			System.out.println("1"+name);
-			sql+=" where name = ? ";
 			adminSwitch=false;
 		}else{
 			System.out.println("2"+name);
@@ -80,7 +79,9 @@ public class BookingList_Dao extends SuperDao{
 			if( conn == null ){ conn = super.getConnection() ; }
 			pstmt = conn.prepareStatement(sql) ;
 			
-			if(!adminSwitch) pstmt.setString(1, name);
+			if(!adminSwitch){
+				
+			}
 			else{
 				pstmt.setString(1, name);
 			}

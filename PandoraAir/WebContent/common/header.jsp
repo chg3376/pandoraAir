@@ -76,6 +76,9 @@
 	function logout(){
 		location.href="<%=MyCtrlCommand1%>pdrLogout";
 	}
+	function insert(){
+		location.href="<%=MyCtrlCommand1%>pdrInsertForm";
+	}
 
 </script>
 
@@ -99,6 +102,11 @@
 				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
 					<ul class="dropdown-menu">	
 						<c:if test="${whologin==1}">
+						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
+						<li><a href="">회원정보 수정</a></li>
+						<li><a href="">회원정보 탈퇴</a></li>
+						</c:if>
+						<c:if test="${whologin==2}">
 						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 탈퇴</a></li>
@@ -141,7 +149,7 @@
   									<button type="button" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
   									</c:if>
   									<c:if test="${whologin==0}">
- 									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
+ 									<button type="button" class="btn btn-nav" onclick="insert()"><b>회원가입</b></button>
  									</c:if>
  								</div>
  							</div>
