@@ -24,8 +24,6 @@ public class InsertController implements SuperController,Validator{
         this.request = request ; 
 
 		bean  = new Member();	
-		System.out.println(request.getParameter("id"));
-		System.out.println(request.getParameter("name"));
 		bean.setId( request.getParameter("id") );
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != "" ){
 			bean.setMpoint( Integer.parseInt( request.getParameter("mpoint") ));	
@@ -33,10 +31,10 @@ public class InsertController implements SuperController,Validator{
 		bean.setEmail(request.getParameter("email"));
 		bean.setLnum(request.getParameter("lnum"));
 		bean.setPhone(request.getParameter("phone"));
-		bean.setName( request.getParameter("name") );
-		bean.setPassword( request.getParameter("password") );
+		bean.setName( request.getParameter("name"));
+		bean.setPassword( request.getParameter("password"));
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != ""){
-			bean.setMpoint( Integer.parseInt( request.getParameter("mpoint") ));	
+			bean.setMpoint(Integer.parseInt( request.getParameter("mpoint")));	
 		}
 		
 		System.out.println( bean );

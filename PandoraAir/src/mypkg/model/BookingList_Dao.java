@@ -105,6 +105,10 @@ public class BookingList_Dao extends SuperDao{
 				bean.setS_num(rs.getString("s_num"));
 				System.out.println(bean.toString());;
 				lists.add( bean ) ;
+				
+			}
+			for(BookingListJoin booking:lists){
+				System.out.println(booking);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

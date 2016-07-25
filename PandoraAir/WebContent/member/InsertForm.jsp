@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <%
 	int myoffset = 2;
 	int mywidth = twelve - 2 * myoffset;
@@ -10,20 +11,15 @@
 %>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.validate.js"></script>
 <style type="text/css">
 .form-group {
 	margin-bottom: 3px;
 }
 </style>
 <script type="text/javascript">
-  	
+     
     function function1(  ){
       var id = document.myform.id.value ;
       if( id.length == 0 ){
@@ -31,8 +27,8 @@
         document.myform.id.focus() ; 
         return false ;
       }else{
-    	  var url='<%=MyCtrlCommand1%>idCheck&id=' + id ; 
-    	  window.open(url, 'mywin', 'height=150,width=300') ;
+         var url='<%=MyCtrlCommand1%>idCheck&id=' + id ; 
+         window.open(url, 'mywin', 'height=150,width=300') ;
       }
     }
     function function2(  ){
@@ -48,26 +44,26 @@
       var lnum =  document.myform.lnum.value;
       var name = document.myform.name.value ;
       var password = document.myform.password.value ;
- 	 var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+     var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
       //alert( isCheck ) ;
       if( isCheck == 'false' ){
         alert('아이디 중복 체크를 우선 해주세용.') ;
         return false ;
       }else if(name.length == 0){
-    	  alert('이름을 입력해 주세요') ;
+         alert('이름을 입력해 주세요') ;
           document.myform.name.focus() ; 
           return false ;
       }else if(password.length == 0){
-    	  alert('비밀번호를 입력해 주세요') ;
+         alert('비밀번호를 입력해 주세요') ;
           document.myform.password.focus() ; 
           return false ;
       }else if( regex.test(email) === false) {
-   	   alert("잘못된 이메일 형식입니다.");
+         alert("잘못된 이메일 형식입니다.");
           document.myform.email.focus() ; 
           return false ;
       }else{
-    	  ale
-    	  var url='<%=MyCtrlCommand1%>pdrInsert&id=' + id + '&name=' + name
+         ale
+         var url='<%=MyCtrlCommand1%>pdrInsert&id=' + id + '&name=' + name
 					+ '&password=' + password + '&email=' + email + '&isCheck='
 					+ isCheck + '&lnum' + lnum;
 			window.open(url, 'mywin', 'height=150,width=300');
@@ -77,13 +73,13 @@
 </script>
 </head>
 <body>
-
 	<div class="col-sm-2 sidenav">
 		<%@ include file="./../../common/left.jsp"%>
 		<br>
 	</div>
 
 	<div class="col-sm-10 bgset">
+
 		<div id="main_container" align="center"
 			class="container col-xs-offset-<%=myoffset%> col-lg-offset-<%=myoffset%> col-xs-<%=mywidth%> col-lg-<%=mywidth%>">
 			<h2>회원 가입 하기</h2>
@@ -94,7 +90,7 @@
 				<div class="panel-body sub_container">
 					<form id="myform" name="myform" class="form-horizontal" role="form"
 						action="<%=MyCtrlByForm1%>" method="post">
-						<input type="hidden" name="command" value="meInsert"> <input
+						<input type="hidden" name="command" value="pdrInsert"> <input
 							type="hidden" name="isCheck" value="false"> <input
 							type="hidden" name="mpoint" value="5">
 						<div class="form-group">
@@ -162,8 +158,7 @@
 
 						<div class="form-group">
 							<div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
-								<button type="button" class="btn btn-default"
-									onclick="return checkForm();">
+								<button type="submit" class="btn btn-default">
 									<b>회원 가입</b>
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;
@@ -176,23 +171,23 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-			$(document).ready(function() {
-				//alert('dd') ;
-				$('#myform').validate({
-					rules : {
-						id : {
-							required : true,
-							rangelength : [ 4, 8 ]
-						}
-					}, //end rules
-					messages : {
-						id : {
-							required : '아이디는 필수 입력 사항입니다.',
-							rangelength : '아이디는 4자리 이상 8자리 이하입니다.'
-						}
+		$(document).ready(function() {
+			//alert('dd') ;
+			$('#myform').validate({
+				rules : {
+					id : {
+						required : true,
+						rangelength : [ 4, 8 ]
 					}
-				});
+				}, //end rules
+				messages : {
+					id : {
+						required : '아이디는 필수 입력 사항입니다.',
+						rangelength : '아이디는 4자리 이상 8자리 이하입니다.'
+					}
+				}
 			});
-		</script>
+		});
+	</script>
 </body>
 </html>
