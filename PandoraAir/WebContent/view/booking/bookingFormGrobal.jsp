@@ -13,8 +13,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
+
 
 <title>Insert title here</title>
 
@@ -44,228 +48,51 @@
 
 </script>
 <style type="text/css">
-    .mw-ui-button {
-        font-family: inherit;
-        font-size: 1em;
-        display: inline-block;
-        padding: .5em 1em;
-        margin: 0;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        *display: inline;
-        zoom: 1;
-        background: #FFF;
-        color: #555;
-        border: 1px solid #CCC;
-        border-radius: 2px;
-        min-width: 4em;
-        vertical-align: middle;
-        text-align: center;
-        font-weight: 700;
-        cursor: pointer;
-        -webkit-transition: background .1s ease-in-out, color .1s ease-in-out, box-shadow .1s ease-in-out;
-        -moz-transition: background .1s ease-in-out, color .1s ease-in-out, box-shadow .1s ease-in-out;
-        -o-transition: background .1s ease-in-out, color .1s ease-in-out, box-shadow .1s ease-in-out;
-        transition: background .1s ease-in-out, color .1s ease-in-out, box-shadow .1s ease-in-out
-    }
+	#c1{
     
-    .mw-ui-button:hover,
-    .mw-ui-button:focus {
-        box-shadow: 0 1px rgba(0, 0, 0, .1), inset 0 -3px rgba(0, 0, 0, .2);
-        border-bottom-color: #ccc;
-        outline: 0
-    }
+    margin-right: 0px;
+    width: 430px;
+    margin-left: 0px;
+    background-color: rgba(255, 255, 255, 0.5);
     
-    .mw-ui-button:hover::-moz-focus-inner,
-    .mw-ui-button:focus::-moz-focus-inner {
-        border-color: transparent
-    }
-    
-    .mw-ui-button:active,
-    .mw-ui-button.mw-ui-checked {
-        background: #ccc;
-        box-shadow: none
-    }
-    
-    .mw-ui-button:hover,
-    .mw-ui-button:active,
-    .mw-ui-button:visited {
-        color: #555
-    }
-    
-    .mw-ui-button:disabled {
-        color: #CCC
-    }
-    
-    .mw-ui-button:disabled:hover,
-    .mw-ui-button:disabled:active {
-        background: #FFF;
-        box-shadow: none
-    }
-    
-    .mw-ui-button:disabled {
-        text-shadow: none;
-        cursor: default
-    }
-    
-    .mw-ui-button.mw-ui-block {
-        display: block;
-        width: 100%
-    }
-    
-    .mw-ui-button.mw-ui-progressive,
-    .mw-ui-button.mw-ui-primary {
-        background: #347bff;
-        color: #fff;
-        border: 1px solid #347bff;
-        text-shadow: 0 1px rgba(0, 0, 0, .1)
-    }
-    
-    .mw-ui-button.mw-ui-progressive:hover,
-    .mw-ui-button.mw-ui-progressive:focus,
-    .mw-ui-button.mw-ui-primary:hover,
-    .mw-ui-button.mw-ui-primary:focus {
-        box-shadow: 0 1px rgba(0, 0, 0, .1), inset 0 -3px rgba(0, 0, 0, .2);
-        border-bottom-color: #2a62cc;
-        outline: 0
-    }
-    
-    .mw-ui-button.mw-ui-progressive:hover::-moz-focus-inner,
-    .mw-ui-button.mw-ui-progressive:focus::-moz-focus-inner,
-    .mw-ui-button.mw-ui-primary:hover::-moz-focus-inner,
-    .mw-ui-button.mw-ui-primary:focus::-moz-focus-inner {
-        border-color: transparent
-    }
-    
-    .mw-ui-button.mw-ui-progressive:active,
-    .mw-ui-button.mw-ui-progressive.mw-ui-checked,
-    .mw-ui-button.mw-ui-primary:active,
-    .mw-ui-button.mw-ui-primary.mw-ui-checked {
-        background: #2a62cc;
-        box-shadow: none
-    }
-    
-    .mw-ui-button.mw-ui-progressive:disabled,
-    .mw-ui-button.mw-ui-primary:disabled {
-        background: #DDD;
-        border-color: #DDD
-    }
-    
-    .mw-ui-button.mw-ui-progressive:disabled:hover,
-    .mw-ui-button.mw-ui-progressive:disabled:active,
-    .mw-ui-button.mw-ui-progressive:disabled.mw-ui-checked,
-    .mw-ui-button.mw-ui-primary:disabled:hover,
-    .mw-ui-button.mw-ui-primary:disabled:active,
-    .mw-ui-button.mw-ui-primary:disabled.mw-ui-checked {
-        box-shadow: none
-    }
-
-    .mw-ui-button.mw-ui-constructive {
-        background: #00af89;
-        color: #fff;
-        border: 1px solid #00af89;
-        text-shadow: 0 1px rgba(0, 0, 0, .1)
-    }
-    
-    .mw-ui-button.mw-ui-constructive:hover,
-    .mw-ui-button.mw-ui-constructive:focus {
-        box-shadow: 0 1px rgba(0, 0, 0, .1), inset 0 -3px rgba(0, 0, 0, .2);
-        border-bottom-color: #008c6e;
-        outline: 0
-    }
-    
-    .mw-ui-button.mw-ui-constructive:hover::-moz-focus-inner,
-    .mw-ui-button.mw-ui-constructive:focus::-moz-focus-inner {
-        border-color: transparent
-    }
-    
-    .mw-ui-button.mw-ui-constructive:active,
-    .mw-ui-button.mw-ui-constructive.mw-ui-checked {
-        background: #008c6e;
-        box-shadow: none
-    }
-    
-    .mw-ui-button.mw-ui-constructive:disabled {
-        background: #DDD;
-        border-color: #DDD
-    }
-    
-    .mw-ui-button.mw-ui-constructive:disabled:hover,
-    .mw-ui-button.mw-ui-constructive:disabled:active,
-    .mw-ui-button.mw-ui-constructive:disabled.mw-ui-checked {
-        box-shadow: none
-    }
-    
-    .mw-ui-button.mw-ui-destructive {
-        background: #d11d13;
-        color: #fff;
-        border: 1px solid #d11d13;
-        text-shadow: 0 1px rgba(0, 0, 0, .1)
-    }
-    
-    .mw-ui-button.mw-ui-destructive:hover,
-    .mw-ui-button.mw-ui-destructive:focus {
-        box-shadow: 0 1px rgba(0, 0, 0, .1), inset 0 -3px rgba(0, 0, 0, .2);
-        border-bottom-color: #a7170f;
-        outline: 0
-    }
-    
-    .mw-ui-button.mw-ui-destructive:hover::-moz-focus-inner,
-    .mw-ui-button.mw-ui-destructive:focus::-moz-focus-inner {
-        border-color: transparent
-    }
-    
-    .mw-ui-button.mw-ui-destructive:active,
-    .mw-ui-button.mw-ui-destructive.mw-ui-checked {
-        background: #a7170f;
-        box-shadow: none
-    }
-    
-    .mw-ui-button.mw-ui-destructive:disabled {
-        background: #DDD;
-        border-color: #DDD
-    }
-    
-    .mw-ui-button.mw-ui-destructive:disabled:hover,
-    .mw-ui-button.mw-ui-destructive:disabled:active,
-    .mw-ui-button.mw-ui-destructive:disabled.mw-ui-checked {
-        box-shadow: none
-    }
-    
-    a.mw-ui-button {
-        text-decoration: none
-    }
-    
-    a.mw-ui-button:hover,
-    a.mw-ui-button:focus {
-        text-decoration: none
-    }
-    
-    .on{
-    background-color: #cccccc;
-    
-    }
-
+    border-top-right-radius:0px;
+    border-top-right-radius:20px;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+	}
+	
+	#cn-c1{
+	width: 430px;
+	}
+	#nn-t1{
+	
+	margin-top: 5px;border-bottom-width: 0px;
+	}
+	#hr1{
+	margin-top: -10; 
+	margin-bottom: 0px; 
+	margin-top: 0px;
+	
+	border-top-color: #EEEEEE;
+	}
 </style>
 </head>
 <body>
 	
 	
 
- 	<div class="container">
-	<div class="collapse navbar-collapse" style=" width: 430px;">
-  		<ul class="nav nav-tabs" style=" margin-top: 5px;">
+ 	<div class="container" id="c1">
+	<div class="collapse navbar-collapse" id="cn-c1">
+  		<ul class="nav nav-tabs" id="nn-t1">
   		
-  		<img alt="??!" src="<%=geturlGro.substring(0, 33)%>view/booking/section_select.jpg">
+  		<img alt="??!" src="<%=geturlGro.substring(0, 33)%>view/booking/section_select.jpg"><br>
 		<label>국제선</label><br>
   		<input class="mw-ui-button" type="button" onclick="gotoGro1()" id="b1" value="편도">
 		<input class="mw-ui-button" type="button" onclick="gotoGro2()" id="b2" value="왕복">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->
-		<hr size="5" noshade style=" margin-top: -10; margin-bottom: 0px; margin-top: 0px;">
+		<hr size="5" noshade id="hr1">
 		<%-- <a href="<%=geturl%>?menu=1">편도</a>
 		<a href="<%=geturl%>?menu=2">왕복</a> --%>
 		

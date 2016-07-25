@@ -41,7 +41,7 @@
 <script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
 <script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
 <script type="text/javascript"></script>
-
+<link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
 
 <style type="text/css">
 
