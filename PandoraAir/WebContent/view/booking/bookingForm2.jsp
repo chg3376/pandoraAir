@@ -3,26 +3,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 	<%
 	String patternBF = "###,###";
 	DecimalFormat BF = new DecimalFormat(patternBF);
-	int twelveBF = 12; //±×¸®µå ½Ã½ºÅÛÀÇ ¼ıÀÚ °ª
+	int twelveBF = 12; //ê·¸ë¦¬ë“œ ì‹œìŠ¤í…œì˜ ìˆ«ì ê°’
 	%>
     <%
 	int myoffsetBF = 1 ;
 	int mywidthBF = 5 * myoffsetBF;
 	int formleftBF = 2 ;
-	int formrightBF = 8 - formleftBF ; //°ª ÀÔ·ÂÃ¢ Å©±â º¯°æ
+	int formrightBF = 8 - formleftBF ; //ê°’ ì…ë ¥ì°½ í¬ê¸° ë³€ê²½
 	%>
 	
 	
 	<%
-	String contextPathBF = request.getContextPath(); //ÇöÀç ÁøÇà ÁßÀÎ ÇÁ·ÎÁ§Æ® ÀÌ¸§ 
-	String CommandNameBF = "/BookingCtrl"; //¿äÃ»À» À§ÇÑ url ÆĞÅÏ ÀÌ¸§
-	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //ÆûÀÌ ÀÖ´Â °æ¿ì¿¡ »ç¿ëµÈ´Ù. 
+	String contextPathBF = request.getContextPath(); //í˜„ì¬ ì§„í–‰ ì¤‘ì¸ í”„ë¡œì íŠ¸ ì´ë¦„ 
+	String CommandNameBF = "/BookingCtrl"; //ìš”ì²­ì„ ìœ„í•œ url íŒ¨í„´ ì´ë¦„
+	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //í¼ì´ ìˆëŠ” ê²½ìš°ì— ì‚¬ìš©ëœë‹¤. 
 	String MyCtrlCommandBF = contextPathBF + CommandNameBF + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
@@ -42,22 +42,22 @@
  		<div id="main_container" align="center" class="container col-xs-offset-<%=myoffsetBF%> col-lg-offset-<%=myoffsetBF%> col-xs-<%=mywidthBF%> col-lg-<%=mywidthBF%>"> 
 		
 		
-		<h2>¿Õº¹</h2>
+		<h2>ì™•ë³µ</h2>
 		<div class="panel panel-primary sub_container">
 		
 			<div class="panel-heading" align="left">
-				<font color="red"><b>±¸°£ 1 : ${requestScope.local1} - ${requestScope.destination1}</b></font>
-				<font color="blue"><b>±¸°£ 2 : ${requestScope.local2} - ${requestScope.destination2}</b></font>
+				<font color="red"><b>êµ¬ê°„ 1 : ${requestScope.local1} - ${requestScope.destination1}</b></font>
+				<font color="blue"><b>êµ¬ê°„ 2 : ${requestScope.local2} - ${requestScope.destination2}</b></font>
 			</div>
 			
 			<table class="table table-striped table-hover">
 				<thead>
 					
 					<tr>
-						<th>Æí¸í</th>
-						<th>Ãâ¹ß½Ã°£</th>
-						<th>µµÂø½Ã°£</th>
-						<th>¿îÀÓ¿ä±İ</th>
+						<th>í¸ëª…</th>
+						<th>ì¶œë°œì‹œê°„</th>
+						<th>ë„ì°©ì‹œê°„</th>
+						<th>ìš´ì„ìš”ê¸ˆ</th>
 					</tr>
 					
 				</thead>

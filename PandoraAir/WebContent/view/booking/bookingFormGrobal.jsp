@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 <%
@@ -262,18 +262,19 @@
 <body>
 
 	<img alt="??!" src="./section_select.jpg">
+	<label>국제선</label>
 
  	<div class="container">
 	<div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="����">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="�պ�">
+  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="편도">
+		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="왕복">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->
 		<hr size="5" noshade style=" margin-top: -10; margin-bottom: 0px; margin-top: 0px;">
-		<%-- <a href="<%=geturl%>?menu=1">����</a>
-		<a href="<%=geturl%>?menu=2">�պ�</a> --%>
+		<%-- <a href="<%=geturl%>?menu=1">편도</a>
+		<a href="<%=geturl%>?menu=2">왕복</a> --%>
 		
 	<%
 		String menuGro = request.getParameter("menu2");
@@ -281,11 +282,11 @@
 		if(menuGro != null) {
 			if(menuGro.equals("1")) {
 	%>
-				<%@ include file="bookingFormOneway.jsp"%>
+				<%@ include file="bookingFormOnewayGrobal.jsp"%>
 	<%
 			} else if(menuGro.equals("2")) {
 	%>
-				<%@ include file="bookingFormTwoway.jsp"%>
+				<%@ include file="bookingFormTwowayGrobal.jsp"%>
 	<%
 			}
 		}

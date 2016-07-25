@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 <%
@@ -262,18 +262,19 @@
 <body>
 
 	<img alt="??!" src="./section_select.jpg">
+	<label>Íµ≠ÎÇ¥ÏÑ†</label>
 
  	<div class="container">
 	<div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="∆Ìµµ">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="ø’∫π">
+  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="Ìé∏ÎèÑ">
+		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="ÏôïÎ≥µ">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->
 		<hr size="5" noshade style=" margin-top: -10; margin-bottom: 0px; margin-top: 0px;">
-		<%-- <a href="<%=geturl%>?menu=1">∆Ìµµ</a>
-		<a href="<%=geturl%>?menu=2">ø’∫π</a> --%>
+		<%-- <a href="<%=geturl%>?menu=1">Ìé∏ÎèÑ</a>
+		<a href="<%=geturl%>?menu=2">ÏôïÎ≥µ</a> --%>
 		
 	<%
 		String menu2 = request.getParameter("menu2");
@@ -281,11 +282,11 @@
 		if(menu2 != null) {
 			if(menu2.equals("1")) {
 	%>
-				<%@ include file="bookingFormOneway.jsp"%>
+				<%@ include file="bookingFormOnewayLocal.jsp"%>
 	<%
 			} else if(menu2.equals("2")) {
 	%>
-				<%@ include file="bookingFormTwoway.jsp"%>
+				<%@ include file="bookingFormTwowayLocal.jsp"%>
 	<%
 			}
 		}
