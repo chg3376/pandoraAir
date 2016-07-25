@@ -45,10 +45,9 @@ public class LoginController implements SuperController {
 			} else { // 비밀번호 틀림
 				url = "/common/Login.jsp";
 
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher(url);
-				dispatcher.forward(request, response);
 			}
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 }

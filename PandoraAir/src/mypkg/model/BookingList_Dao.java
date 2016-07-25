@@ -90,6 +90,10 @@ public class BookingList_Dao extends SuperDao{
 				bean.setP_date(rs.getString("p_date"));
 				bean.setS_num(rs.getString("s_num"));
 				lists.add( bean ) ;
+				
+			}
+			for(BookingListJoin booking:lists){
+				System.out.println(booking);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
