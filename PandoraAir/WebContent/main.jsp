@@ -106,10 +106,11 @@ footer {
 
                 <img alt="" src="./image/main1.jpg" />
                 
-            
+          
    			<div  class="button" width: 430px;">
+   				  
   				<ul  style=" margin-top: 5px;">
-  					<c:if test="sessionScope.whologin != 0">
+  					<c:if test="${whologin != 0}">
   					<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="국내선" style="">
 					<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="국제선">
 					</c:if>
@@ -130,8 +131,9 @@ footer {
 		}
 	%>
 				</ul>
+				
 			</div>
-	
+			
 			</div>
 			</div>
 				</div>
