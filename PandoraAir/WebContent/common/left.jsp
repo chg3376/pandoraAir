@@ -35,7 +35,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style=" width: 192px;">
 		<ul class="leftul">
 			<c:if test="${whologin==2 }">
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">비행정보<span class="caret"></span></a>

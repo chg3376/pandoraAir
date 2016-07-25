@@ -72,6 +72,7 @@
 		margin-top: -30px;
 	}
 
+
 </style>
 
 <script type="text/javascript">
@@ -83,8 +84,8 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
+	<nav class="navbar navbar-inverse" style="height: 103px;">
+	<div class="container-fluid" style=" padding-left: 0px;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target="#myNavbar">
@@ -92,7 +93,7 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a href="<%=MyCtrlCommand1%>main.jsp"><img src="image/pandora.jpg"></a>
+			<a href="<%=MyCtrlCommand1%>main.jsp"><img src="<%=contextPath1%>/image/pandora2.jpg"></a>
 		</div>
 		
 			
@@ -101,7 +102,7 @@
 			
 		
 			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown">회원 정보 <b class="caret"></b></a>
+				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
 					<ul class="dropdown-menu">	
 						<c:if test="${whologin==1}">
 						<li><a href="">예매정보 확인</a></li>
@@ -111,41 +112,39 @@
 					</ul>
 				</li>
 			</ul>
-			
-			<ul class="nav navbar-nav">
+			<c:if test="${whologin!=0}">
+			<ul class="nav navbar-nav" style="padding-top: 10px;">
 					<li class="navbar">
 						<a href="#" class="dropdown-toggle">
 							<font color='white'>
-								<c:if test="${whologin==0}">
-								</c:if>
-								<c:if test="${whologin!=0}">
+								
 									안녕하세요 <font color="#ffffb3"><b>${sessionScope.loginfo.name}(${sessionScope.loginfo.id})</b></font> 님 
-								</c:if>
+								
 							</font>
 						</a>
 					</li>
 			</ul>
-			
+			</c:if>
 			<ul class="nav navbar-nav">
-				<li class="navbar">
-					<form role="form" action="<%=MyCtrlByForm1%>" method="post">
+				<li class="navbar" style="height: 82px;">
+					<form role="form" action="<%=MyCtrlByForm1%>" method="post" style="padding-top: 30px;">
 					<input type="hidden" name="command" value="pdrLogin">
-						<ul>
-						<li class="navbar" >
-  						<div class="row">
+						<!-- <ul> -->
+						<li class="navbar">
+  						<div class="row" >
   							<c:if test="${whologin==0 }">
-  							<div class="col-sm-1"><label for="id"><font color="white">ID :  </font></label></div>
-  							<div class="col-sm-3"><input type="text" class="form-control" id="id" name="id" value="Aasd1212"}></div>
-  							<div class="col-sm-2"><label for="password"><font color="white">Password: </font></label></div>
-  							<div class="col-sm-3"><input type="password" class="form-control" id="password" name="password" value="1234"></div>
+  							<div class="col-sm-1" align="right" style="padding-top: 5px;"><label for="id" ><font color="white" >ID :  </font></label></div>
+  							<div class="col-xs-3"><input type="text" class="form-control input-sm" id="id" name="id" value="Aasd1212"></div>
+  							<div class="col-sm-2"  align="right" style="padding-top: 5px;"><label for="password"><font color="white">Password: </font></label></div>
+  							<div class="col-xs-3"><input type="password" class="form-control input-sm" id="password" name="password" value="1234"></div>
   							</c:if>
-  							<div class="col-sm-3">
+  							<div class="col-sm-3" style=" padding-top: 5px;">
   								<div class="btn-group-xs">
   									<c:if test="${whologin==0}">
   									<button type="submit" class="btn btn-nav"><b>로그인</b></button>
   									</c:if>
   									<c:if test="${whologin!=0}">
-  									<button type="submit" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
+  									<button type="button" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
   									</c:if>
   									<c:if test="${whologin==0}">
  									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
@@ -157,7 +156,7 @@
    							
    							
   						</li>
-  						<li>
+  						<!-- <li> -->
   						</li>
  						</ul>
  						

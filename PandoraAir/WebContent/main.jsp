@@ -15,7 +15,7 @@
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
-	height: 100% px
+	height: 100%;
 }
 
 /* Set gray background color and 100% height */
