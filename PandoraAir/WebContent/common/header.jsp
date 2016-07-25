@@ -93,7 +93,7 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a href="<%=MyCtrlCommand1%>main.jsp"><img src="<%=contextPath1%>/image/pandora2.jpg"></a>
+			<a href="<%=MyCtrlCommand1%>pdrmain"><img src="<%=contextPath1%>/image/pandora2.jpg"></a>
 		</div>
 		
 			
