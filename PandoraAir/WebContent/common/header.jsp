@@ -98,15 +98,17 @@
 		
 			
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
-					<ul class="dropdown-menu">	
+			<ul class="nav navbar-nav">	
 						<c:if test="${whologin==1}">
+						<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
+					    <ul class="dropdown-menu">
 						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 탈퇴</a></li>
 						</c:if>
 						<c:if test="${whologin==2}">
+						<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
+					    <ul class="dropdown-menu">
 						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 탈퇴</a></li>
