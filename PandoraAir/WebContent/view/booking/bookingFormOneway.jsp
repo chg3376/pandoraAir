@@ -3,26 +3,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 	<%
 	String patternBF = "###,###";
 	DecimalFormat BF = new DecimalFormat(patternBF);
-	int twelveBF = 12; //±×¸®µå ½Ã½ºÅÛÀÇ ¼ıÀÚ °ª
+	int twelveBF = 12; //ê·¸ë¦¬ë“œ ì‹œìŠ¤í…œì˜ ìˆ«ì ê°’
 	%>
     <%
 	int myoffsetBF = 0 ;
 	int mywidthBF = 12;
 	int formleftBF = 2 ;
-	int formrightBF = 9 - formleftBF ; //°ª ÀÔ·ÂÃ¢ Å©±â º¯°æ
+	int formrightBF = 9 - formleftBF ; //ê°’ ì…ë ¥ì°½ í¬ê¸° ë³€ê²½
 	%>
 	
 	
 	<%
-	String contextPathBF = request.getContextPath(); //ÇöÀç ÁøÇà ÁßÀÎ ÇÁ·ÎÁ§Æ® ÀÌ¸§ 
-	String CommandNameBF = "/BookingCtrl"; //¿äÃ»À» À§ÇÑ url ÆĞÅÏ ÀÌ¸§
-	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //ÆûÀÌ ÀÖ´Â °æ¿ì¿¡ »ç¿ëµÈ´Ù. 
+	String contextPathBF = request.getContextPath(); //í˜„ì¬ ì§„í–‰ ì¤‘ì¸ í”„ë¡œì íŠ¸ ì´ë¦„ 
+	String CommandNameBF = "/BookingCtrl"; //ìš”ì²­ì„ ìœ„í•œ url íŒ¨í„´ ì´ë¦„
+	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //í¼ì´ ìˆëŠ” ê²½ìš°ì— ì‚¬ìš©ëœë‹¤. 
 	String MyCtrlCommandBF = contextPathBF + CommandNameBF + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
@@ -92,9 +92,9 @@ color: #fff !important;
 					<div class="form-group">
 	        			<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-1" id="section1-1" style=" width: 352px; height: 32px;">
-								<option value="ÀÎÃµ" selected="selected">ÀÎÃµ
-								<option value="±èÇØ">±èÇØ
-								<option value="Á¦ÁÖ">Á¦ÁÖ
+								<option value="ì¸ì²œ" selected="selected">ì¸ì²œ
+								<option value="ê¹€í•´">ê¹€í•´
+								<option value="ì œì£¼">ì œì£¼
 							</select>
 	        			</div>
 	        		</div>
@@ -102,9 +102,9 @@ color: #fff !important;
 	        		<div class="form-group">
 	        		<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-2" id="section1-2" style=" width: 352px; height: 32px;">
-								<option value="µµÄì" selected="selected">µµÄì
-								<option value="º£ÀÌÂ¡">º£ÀÌÂ¡
-								<option value="¸¶´Ò¶ó">¸¶´Ò¶ó
+								<option value="ë„ì¿„" selected="selected">ë„ì¿„
+								<option value="ë² ì´ì§•">ë² ì´ì§•
+								<option value="ë§ˆë‹ë¼">ë§ˆë‹ë¼
 							</select>
 	        			</div>
 	        		</div>
@@ -117,11 +117,11 @@ color: #fff !important;
 	        		<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="persons" id="persons" style="height: 32px;">
 								<option value="-" selected="selected">-
-								<option value="1ÀÎ">1ÀÎ
-								<option value="2ÀÎ">2ÀÎ
-								<option value="3ÀÎ">3ÀÎ
-								<option value="4ÀÎ">4ÀÎ
-								<option value="5ÀÎ">5ÀÎ
+								<option value="1ì¸">1ì¸
+								<option value="2ì¸">2ì¸
+								<option value="3ì¸">3ì¸
+								<option value="4ì¸">4ì¸
+								<option value="5ì¸">5ì¸
 							</select>
 	        			</div>
 	        		</div>
@@ -129,24 +129,13 @@ color: #fff !important;
 					
 					<div class="form-group">
 						<div class="col-xs-<%=twelveBF%> col-lg-<%=twelveBF%>" align="center">
-							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>´ÙÀ½ ÆäÀÌÁö</b></button>
+							<button type="submit" class="btn btn-default"><b>ë‹¤ìŒ í˜ì´ì§€</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="reset" class="btn btn-default">ÃÊ±âÈ­</button>
+							<button type="reset" class="btn btn-default">ì´ˆê¸°í™”</button>
 						</div>
 					</div>
-					
-
-					
 				</form>
 			</div>
-	
-        
-        
-
-        
-        
-        
-        
 
 </body>
 </html>

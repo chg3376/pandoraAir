@@ -3,26 +3,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 	<%
 	String patternBF = "###,###";
 	DecimalFormat BF = new DecimalFormat(patternBF);
-	int twelveBF = 12; //±×¸®µå ½Ã½ºÅÛÀÇ ¼ıÀÚ °ª
+	int twelveBF = 12; //ê·¸ë¦¬ë“œ ì‹œìŠ¤í…œì˜ ìˆ«ì ê°’
 	%>
     <%
 	int myoffsetBF = 1 ;
 	int mywidthBF = 5 * myoffsetBF;
 	int formleftBF = 2 ;
-	int formrightBF = 9 - formleftBF ; //°ª ÀÔ·ÂÃ¢ Å©±â º¯°æ
+	int formrightBF = 9 - formleftBF ; //ê°’ ì…ë ¥ì°½ í¬ê¸° ë³€ê²½
 	%>
 	
 	
 	<%
-	String contextPathBF = request.getContextPath(); //ÇöÀç ÁøÇà ÁßÀÎ ÇÁ·ÎÁ§Æ® ÀÌ¸§ 
-	String CommandNameBF = "/BookingCtrl"; //¿äÃ»À» À§ÇÑ url ÆĞÅÏ ÀÌ¸§
-	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //ÆûÀÌ ÀÖ´Â °æ¿ì¿¡ »ç¿ëµÈ´Ù. 
+	String contextPathBF = request.getContextPath(); //í˜„ì¬ ì§„í–‰ ì¤‘ì¸ í”„ë¡œì íŠ¸ ì´ë¦„ 
+	String CommandNameBF = "/BookingCtrl"; //ìš”ì²­ì„ ìœ„í•œ url íŒ¨í„´ ì´ë¦„
+	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //í¼ì´ ìˆëŠ” ê²½ìš°ì— ì‚¬ìš©ëœë‹¤. 
 	String MyCtrlCommandBF = contextPathBF + CommandNameBF + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
@@ -43,10 +43,10 @@
 		class="container col-xs-offset-<%=myoffsetBF%> col-lg-offset-<%=myoffsetBF%> col-xs-<%=mywidthBF%> col-lg-<%=mywidthBF%>"> 
 		
 		
-		<h2>¿Õº¹</h2>
+		<h2>ì™•ë³µ</h2>
 		<div class="panel panel-primary sub_container">
 			<div class="panel-heading" align="left">
-				<font color="red"><b>¿Õº¹!</b></font>
+				<font color="red"><b>ì™•ë³µ!</b></font>
 			</div>
 			
 			<div class="panel-body sub_container">
@@ -54,7 +54,7 @@
 					<input type="hidden" name="command" value="#">
 					
 					<div class="form-group">
-						<label for="section1" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">±¸°£ 1</label>
+						<label for="section1" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">êµ¬ê°„ 1</label>
 	        			<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<label>${requestScope.local1}</label>
 	            			<!-- <input type="text" name="local1" id="local1" class="form-control"> -->
@@ -66,7 +66,7 @@
 	        		</div>
 	        		
 	        		<div class="form-group">
-						<label for="section2" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">±¸°£ 2</label>
+						<label for="section2" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">êµ¬ê°„ 2</label>
 	        			<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	        				<label>${requestScope.local2}</label>
 	            			<!-- <input type="text" name="local2" id="local2" class="form-control"> -->
@@ -78,7 +78,7 @@
 	        		</div>		
 	        		
 					<div class="form-group">
-						<label for="persons" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">ÀÎ¿ø</label>
+						<label for="persons" class="col-xs-<%=formleftBF+1%> col-lg-<%=formleftBF+1%> control-label">ì¸ì›</label>
 	        			<div class="col-xs-<%=formrightBF-4%> col-lg-<%=formrightBF-4%>">
 	        				<label>${requestScope.persons}</label>
 	            			<!-- <input type="text" name="persons" id="persons" class="form-control"> -->
@@ -88,7 +88,7 @@
 					
 					<div class="form-group">
 						<div class="col-xs-<%=twelveBF%> col-lg-<%=twelveBF%>" align="center">
-							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>È®ÀÎ ¿Ï·á</b></button>
+							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>í™•ì¸ ì™„ë£Œ</b></button>
 						</div>
 					</div>
 					

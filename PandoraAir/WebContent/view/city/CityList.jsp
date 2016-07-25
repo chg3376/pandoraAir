@@ -1,13 +1,14 @@
+<%@ include file="./../../common/header.jsp"%>
 <%@page import="mypkg.model.CityDao"%>
 <%@ page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
-String contextPath2 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
-String CommandName2 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
-String MyCtrlByForm2 = contextPath2 + CommandName2; //폼이 있는 경우에 사용된다. 
-String MyCtrlCommand2 = contextPath2 + CommandName2 + "?command=";
-//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
+	String contextPath2 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+	String CommandName2 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+	String MyCtrlByForm2 = contextPath2 + CommandName2; //폼이 있는 경우에 사용된다. 
+	String MyCtrlCommand2 = contextPath2 + CommandName2 + "?command=";
+	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 %>
 <%
 	String pattern2 = "###,###";
@@ -28,13 +29,23 @@ String MyCtrlCommand2 = contextPath2 + CommandName2 + "?command=";
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 .xxx {
 	margin-left: 0px;
 }
-.re{font-size: 11px;}
+
+.re {
+	font-size: 11px;
+}
 </style>
 <script type="text/javascript">
 	function writeForm(){
@@ -57,84 +68,91 @@ String MyCtrlCommand2 = contextPath2 + CommandName2 + "?command=";
 </script>
 </head>
 <body>
-	<div class="container col-sm-offset-<%=myoffset%> col-sm-<%=mywidth%>">
-		<div class="panel panel-default panel-primary">
-			<div class="panel-heading">
-				<form class="form-inline" role="form">
-					<h2>City (임시)</h2>
-				</form>
-			</div>
-			<table class="table table-striped table-hover">
-				<thead>
-				<td colspan="10" align="center">
-						<form class="form-inline" role="form" name="myform" action="<%=MyCtrlByForm2%>boList" method="get">
-							<div class="form-group">
-								<select class="form-control" name="mode" id="mode">
-									<option value="all" selected="selected">-- 선택하세요---------
-									<option value="writer">도시코드
-									<option value="subject">출발지
-									<option value="content">도착지
-																		
-								</select>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control btn-xs" name="keyword"
-									id="keyword" placeholder="검색 키워드">
-							</div>
-							<button class="btn btn-default btn-warning" type="submit" onclick="search();">검색</button>
-							<button class="btn btn-default btn-warning" type="button" onclick="searchAll();">전체 검색</button>
-							<button class="btn btn-default btn-info" type="button"
-								onclick="writeForm();">경로 추가</button>
+	<div class="col-sm-2 sidenav">
+		<%@ include file="./../../common/left.jsp"%>
+		<br>
+	</div>
+
+	<div class="col-sm-10 bgset">
+		<div class="container col-sm-offset-<%=myoffset%> col-sm-<%=mywidth%>">
+			<div class="panel panel-default panel-primary">
+				<div class="panel-heading">
+					<form class="form-inline" role="form">
+						<h2>City (임시)</h2>
+					</form>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<td colspan="10" align="center">
+							<form class="form-inline" role="form" name="myform"
+								action="<%=MyCtrlByForm2%>boList" method="get">
+								<div class="form-group">
+									<select class="form-control" name="mode" id="mode">
+										<option value="all" selected="selected">--
+											선택하세요---------
+										<option value="writer">도시코드
+										<option value="subject">출발지
+										<option value="content">도착지
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control btn-xs" name="keyword"
+										id="keyword" placeholder="검색 키워드">
+								</div>
+								<button class="btn btn-default btn-warning" type="submit"
+									onclick="search();">검색</button>
+								<button class="btn btn-default btn-warning" type="button"
+									onclick="searchAll();">전체 검색</button>
+								<button class="btn btn-default btn-info" type="button"
+									onclick="writeForm();">경로 추가</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<p class="form-control-static">${requestScope.pagingStatus}</p>
-						</form>
-					</td>
-					<tr>
-						<th>도시코드</th>
-						<th>출발지</th>
-						<th>도착지</th>
-						<th>수정</th>
-						<th>삭제</th>
-					</tr>
-				</thead>
-				<tr>
-					
-				</tr>
-				<c:forEach var="bean" items="${requestScope.lists}">
-					<tr>
-						<td>${bean.city_code}</td>
-						<td>${bean.local}</td>
-						<td>${bean.destination}</td>
-						<td>
-							
-								<a href="<%=MyCtrlCommand2%>boUpdateForm&no=${bean.city_code}&${requestScope.parameters}">
-									수정
-								</a>
+							</form>
 						</td>
-						<td>
-							
-								<a href="<%=MyCtrlCommand2%>boDeleteForm&no=${bean.city_code}&${requestScope.parameters}">
-									삭제
-								</a>
-						</td>
+						<tr>
+							<th>도시코드</th>
+							<th>출발지</th>
+							<th>도착지</th>
+							<th>수정</th>
+							<th>삭제</th>
+						</tr>
+					</thead>
+					<tr>
+
 					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<div align="center">
-			<footer>${requestScope.pagingHtml}</footer>			
+					<c:forEach var="bean" items="${requestScope.lists}">
+						<tr>
+							<td>${bean.city_code}</td>
+							<td>${bean.local}</td>
+							<td>${bean.destination}</td>
+							<td><a
+								href="<%=MyCtrlCommand2%>boUpdateForm&no=${bean.city_code}&${requestScope.parameters}">
+									수정 </a></td>
+							<td><a
+								href="<%=MyCtrlCommand2%>boDeleteForm&no=${bean.city_code}&${requestScope.parameters}">
+									삭제 </a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<div align="center">
+				<footer>${requestScope.pagingHtml}</footer>
+			</div>
 		</div>
 	</div>
-	<br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<script type="text/javascript">
-	   /* 방금 전 선택한 콤보 박스를 그대로 보여 주기 */ 
-		$('#mode option').each(function (index){
-			if( $(this).val() == '${requestScope.mode}' ){
-				$(this).attr('selected', 'selected') ;
+		/* 방금 전 선택한 콤보 박스를 그대로 보여 주기 */
+		$('#mode option').each(function(index) {
+			if ($(this).val() == '${requestScope.mode}') {
+				$(this).attr('selected', 'selected');
 			}
-		});	
+		});
 		/* 이전에 넣었던 값 그대로 보존 */
-		$('#keyword').val( '${requestScope.keyword}' ) ;
+		$('#keyword').val('${requestScope.keyword}');
 	</script>
 </body>
 </html>

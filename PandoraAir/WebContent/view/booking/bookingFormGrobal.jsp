@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
    
 <%@page import="java.text.DecimalFormat"%>
 <%
@@ -15,16 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script src="./common/js/jquery-latest.js"></script>
-<link rel="stylesheet" type="text/css" href="./templates/default/js/ui.datepicker/css/smoothness/jquery-ui-1.7.2.custom.css">
-<script type="text/javascript" src="./templates/default/js/ui.datepicker/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
-<script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
-<script type="text/javascript"></script>
+
 <title>Insert title here</title>
 
 <script type="text/javascript">
@@ -266,14 +257,14 @@
  	<div class="container">
 	<div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="Æíµµ">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="¿Õº¹">
+  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="í¸ë„">
+		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="ì™•ë³µ">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->
 		<hr size="5" noshade style=" margin-top: -10; margin-bottom: 0px; margin-top: 0px;">
-		<%-- <a href="<%=geturl%>?menu=1">Æíµµ</a>
-		<a href="<%=geturl%>?menu=2">¿Õº¹</a> --%>
+		<%-- <a href="<%=geturl%>?menu=1">í¸ë„</a>
+		<a href="<%=geturl%>?menu=2">ì™•ë³µ</a> --%>
 		
 	<%
 		String menuGro = request.getParameter("menu2");

@@ -1,7 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-    
+    pageEncoding="UTF-8"%>
     <%
   		StringBuffer geturl = request.getRequestURL();
   	%>
@@ -313,19 +312,15 @@
 
 </style>
 </head>
-<body>
- 		
-   ${menu1}
-        
-        
+<body>  
    <div class="container">
    <div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="±¹³»¼±">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="±¹Á¦¼±">
+  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="êµ­ë‚´ì„ ">
+		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="êµ­ì œì„ ">
 		
 		
-		<%
+	<%
 		String menu1 = request.getParameter("menu1");
 
 		if(menu1 != null) {
@@ -340,6 +335,9 @@
 			}
 		}
 	%>
+	</ul>
+	</div>
+	</div>
        
 
 </body>
