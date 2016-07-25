@@ -16,7 +16,7 @@
 .leftul{
 	list-style : none;
 	margin-top: 100px;
-	margin-bottom: 150%;
+	margin-bottom: 100%;
 }
 .dropdown-toggle, .dobook{
 	margin-top: 10px;
@@ -35,12 +35,11 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style=" width: 192px;">
 		<ul class="leftul">
 			<c:if test="${whologin==2 }">
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">비행정보<span class="caret"></span></a>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">비행정보<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					
 					<li><a class="allList" href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
 					<li><a class="allList" href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
 					<li><a class="allList" href="<%=MyCtrlCommand%>ScheduleList">스케줄 목록</a></li>

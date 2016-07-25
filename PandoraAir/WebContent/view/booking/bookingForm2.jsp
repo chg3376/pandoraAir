@@ -1,6 +1,30 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
+   
+<%@page import="java.text.DecimalFormat"%>
+	<%
+	String patternBF = "###,###";
+	DecimalFormat BF = new DecimalFormat(patternBF);
+	int twelveBF = 12; //그리드 시스템의 숫자 값
+	%>
+    <%
+	int myoffsetBF = 1 ;
+	int mywidthBF = 5 * myoffsetBF;
+	int formleftBF = 2 ;
+	int formrightBF = 8 - formleftBF ; //값 입력창 크기 변경
+	%>
+	
+	
+	<%
+	String contextPathBF = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+	String CommandNameBF = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //폼이 있는 경우에 사용된다. 
+	String MyCtrlCommandBF = contextPathBF + CommandNameBF + "?command=";
+	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,95 +35,43 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
-<style type= "text/css" >
-        div {
-               width: 100px ;
-               height: 100px ;
-               background-color : yellow ;
-               position: absolute ;
-       }
-        #mydiv {
-               text-align :center ;
-               line-height : 100px ;
-               top: 100px ;
-               left: 500px ;
-               width: 300px ;
-               height: 300px ;
-               background-color : aqua ;
-               border: 10px solid red ;
-       }
-        .test1 {
-               text-align :center
-              top : 20px;
-               margin-left : -70px ;
-               background-color : fuchsia ;
-       }
-        .test2 {
-               top: 20px ;
-               margin-left : 270px ;
-               background-color : gray ;
-       }
-        .test3 {
-               top: 180px ;
-               margin-left : -70px ;
-               background-color : maroon ;
-       }
-        .test4 {
-               top: 180px ;
-               margin-left : 270px ;
-               background-color : purple ;
-       }
-</style>
 
-<script type="text/javascript">
-    function AddItem(Text,Value)
-    {
-        // Create an Option object
- 
-       
-        var opt = document.createElement("option");
-        
-        // Add an Option object to Drop Down/List Box
-        document.getElementById("DropDownList").options.add(opt);
-        // Assign text and value to Option object
-        opt.text = Text;
-        opt.value = Value;
-               
-    }
-
-/* 	function test1(){
-		/* if(src=="./../../image/localOn.jpg"){
-			document.getElementById("test1").src = "./localOff.jpg";
-		}else{
-			document.getElementById("test1").src = "./localOn.jpg";
-		}
-		var a="./localOn.jpg";
-		var b="./localOff.jpg";
-		var c=a;
-		a=b;
-		b=c;
-		
-		
-		document.getElementById("test1").src = a;
-		
-	} */
-	
-</script>
 </head>
 <body>
- 		<!-- <div id= "mydiv" >
-               <input class="test1" align="middle" type="image" id="test1" src="./localOn.jpg" onclick="test1()" > 
-               <div class= "test2" >���� �ɽ� </div>
-               <div class= "test3" >Ƽ�ƶ� </div>
-               <div class= "test4" >exid </div>
-        </div> -->
-        
-        
-
-        
-        
-        
-        
+ 		<div id="main_container" align="center" class="container col-xs-offset-<%=myoffsetBF%> col-lg-offset-<%=myoffsetBF%> col-xs-<%=mywidthBF%> col-lg-<%=mywidthBF%>"> 
+		
+		
+		<h2>왕복</h2>
+		<div class="panel panel-primary sub_container">
+		
+			<div class="panel-heading" align="left">
+				<font color="red"><b>구간 1 : ${requestScope.local1} - ${requestScope.destination1}</b></font>
+				<font color="blue"><b>구간 2 : ${requestScope.local2} - ${requestScope.destination2}</b></font>
+			</div>
+			
+			<table class="table table-striped table-hover">
+				<thead>
+					
+					<tr>
+						<th>편명</th>
+						<th>출발시간</th>
+						<th>도착시간</th>
+						<th>운임요금</th>
+					</tr>
+					
+				</thead>
+				<tr>
+				</tr>
+					<tr>
+						<td>${bean.airplane}</td>
+						<td>${bean.departure_time}</td>
+						<td>${bean.arrival_time}</td>
+						<td>${bean.fare}</td>
+					</tr>
+			</table>
+			
+		</div>		
+	</div>
 
 </body>
 </html>

@@ -1,8 +1,7 @@
-
+<%@ include file="./../../common/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="mypkg.model.Airplane"%>
-<%@ include file="./../../common/top.jsp"%>
 <%
 	int myoffset = 2;
 	int mywidth = twelve - 2 * myoffset;
@@ -16,16 +15,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>BootStrap Sample</title>
 <style type="text/css">
 .xxx {
 	margin-left: 0px;
 }
-.re{font-size: 11px;}
+
+.re {
+	font-size: 11px;
+}
 </style>
 <script type="text/javascript">
 	function writeForm(){
-			location.href='<%=MyCtrlCommand%>boInsertForm';
+			location.href='<%=MyCtrlCommand1%>boInsertForm';
 	}
 	function search(){
 		if( $('#mode').val() == '-' ){
@@ -39,92 +48,104 @@
 	function searchAll(){
 		//$('#mode').val('-');
 		//$('#keyword').val('');
-		location.href='<%=MyCtrlCommand%>boList';
+		location.href='<%=MyCtrlCommand1%>boList';
 	}
 </script>
 </head>
 <body>
-	<div class="container col-sm-offset-<%=myoffset%> col-sm-<%=mywidth%>">
-		<div class="panel panel-default panel-primary">
-			<div class="panel-heading">
-				<form class="form-inline" role="form">
-					<h2>비행기 목록</h2>
-				</form>
-			</div>
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr><th colspan="10" align="center">
-						<form class="form-inline" role="form" name="myform" action="<%=MyCtrlCommand%>boList" method="post">
-							<div class="form-group">
-								<select class="form-control" name="mode" id="mode">
-									<option value="all" selected="selected">-- 선택하세요---------
-									<option value="writer">작성자
-									<option value="subject">제목									
-									<option value="content">글 내용									
-								</select>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control btn-xs" name="keyword"
-									id="keyword" placeholder="검색 키워드">
-							</div>
-							<button class="btn btn-default btn-warning" type="submit" onclick="search();">검색</button>
-							<button class="btn btn-default btn-warning" type="button" onclick="searchAll();">전체 검색</button>
-							<button class="btn btn-default btn-info" type="button"
-								onclick="writeForm();">비행기 정보 등록</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<p class="form-control-static">${requestScope.pagingStatus}</p>
-						</form>
-					</th>
-					</tr>
-					<tr>
-						<th>편명</th>
-						<th>구분</th>
-						<th>정원</th>
-						<th>운임요금</th>
-						<th>적립포인트</th>
-						<th>수정</th>
-						<th>삭제</th>
-					</tr>
-				</thead>
-				<tr>
-				</tr>
-				<c:forEach var="bean" items="${requestScope.lists}">
-					<tr>
-						<td>${bean.airplane}</td>
-						<td>${bean.category}</td>
-						<td>${bean.seat_qty}</td>
-						<td>${bean.fare}</td>
-						<td>${bean.saving_point}</td>
-						<td>
-								<a href="<%=MyCtrlCommand%>boUpdateForm&no=${bean.airplane}&${requestScope.parameters}">
-									수정
-								</a>
-						</td>
-						<td>
-								<a href="<%=MyCtrlCommand%>boDelete&no=${bean.airplane}&${requestScope.parameters}">
-									삭제
-								</a>
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		
-		<div align="center">
-			<footer>${requestScope.pagingHtml}</footer>			
-		</div>
-		
+	<div class="col-sm-2 sidenav">
+		<%@ include file="./../../common/left.jsp"%>
+		<br>
 	</div>
-	<br><br><br><br>
+
+	<div class="col-sm-10 bgset">
+
+
+		<div class="container col-sm-offset-<%=myoffset%> col-sm-<%=mywidth%>">
+			<div class="panel panel-default panel-primary">
+				<div class="panel-heading">
+					<form class="form-inline" role="form">
+						<h2>비행기 목록</h2>
+					</form>
+				</div>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th colspan="10" align="center">
+								<form class="form-inline" role="form" name="myform"
+									action="<%=MyCtrlCommand1%>boList" method="post">
+									<div class="form-group">
+										<select class="form-control" name="mode" id="mode">
+											<option value="all" selected="selected">--
+												선택하세요---------
+											<option value="writer">작성자
+											<option value="subject">제목
+											<option value="content">글 내용
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control btn-xs" name="keyword"
+											id="keyword" placeholder="검색 키워드">
+									</div>
+									<button class="btn btn-default btn-warning" type="submit"
+										onclick="search();">검색</button>
+									<button class="btn btn-default btn-warning" type="button"
+										onclick="searchAll();">전체 검색</button>
+									<button class="btn btn-default btn-info" type="button"
+										onclick="writeForm();">비행기 정보 등록</button>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<p class="form-control-static">${requestScope.pagingStatus}</p>
+								</form>
+							</th>
+						</tr>
+						<tr>
+							<th>편명</th>
+							<th>구분</th>
+							<th>정원</th>
+							<th>운임요금</th>
+							<th>적립포인트</th>
+							<th>수정</th>
+							<th>삭제</th>
+						</tr>
+					</thead>
+					<tr>
+					</tr>
+					<c:forEach var="bean" items="${requestScope.lists}">
+						<tr>
+							<td>${bean.airplane}</td>
+							<td>${bean.category}</td>
+							<td>${bean.seat_qty}</td>
+							<td>${bean.fare}</td>
+							<td>${bean.saving_point}</td>
+							<td><a
+								href="<%=MyCtrlCommand1%>boUpdateForm&no=${bean.airplane}&${requestScope.parameters}">
+									수정 </a></td>
+							<td><a
+								href="<%=MyCtrlCommand1%>boDelete&no=${bean.airplane}&${requestScope.parameters}">
+									삭제 </a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+		<div align="center">
+			<footer>${requestScope.pagingHtml}</footer>
+		</div>
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 	<script type="text/javascript">
-	   /* 방금 전 선택한 콤보 박스를 그대로 보여 주기 */ 
-		$('#mode option').each(function (index){
-			if( $(this).val() == '${requestScope.mode}' ){
-				$(this).attr('selected', 'selected') ;
+		/* 방금 전 선택한 콤보 박스를 그대로 보여 주기 */
+		$('#mode option').each(function(index) {
+			if ($(this).val() == '${requestScope.mode}') {
+				$(this).attr('selected', 'selected');
 			}
-		});	
+		});
 		/* 이전에 넣었던 값 그대로 보존 */
-		$('#keyword').val( '${requestScope.keyword}' ) ;
+		$('#keyword').val('${requestScope.keyword}');
 	</script>
 </body>
 </html>
