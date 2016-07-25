@@ -78,7 +78,7 @@
       </div>
       <div class="panel-body sub_container">
         <form id="myform" name="myform" class="form-horizontal" role="form" action="<%=MyCtrlByForm%>" method="post">
-          <input type="hidden" name="command" value="meInsert">
+          <input type="hidden" name="command" value="pdrInsert">
           <input type="hidden" name="isCheck" value="false">
           <input type="hidden" name="mpoint" value="5">
           <div class="form-group">
@@ -132,7 +132,7 @@
 
           <div class="form-group">
             <div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
-              <button type="button" class="btn btn-default" onclick="return checkForm();"><b>회원 가입</b></button>
+              <button type="submit" class="btn btn-default"><b>회원 가입</b></button>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <button type="reset" class="btn btn-default">초기화</button>
             </div>
