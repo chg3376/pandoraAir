@@ -76,9 +76,14 @@ public class InsertController implements SuperController,Validator{
 			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
 			isCheck = false  ;
 		}
+		if( bean.getEmail().length() < 4 || bean.getPassword().length() > 20 ){
+			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
+			isCheck = false  ;
+		}
 		return isCheck ;
 		
 	}
-	
+
+
 
 }

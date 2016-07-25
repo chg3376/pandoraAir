@@ -24,7 +24,7 @@
         document.myform.id.focus() ; 
         return false ;
       } else {
-      
+      	
     	  var url='<%=MyCtrlCommand%>idcheck&id=' + id ; 
     	  window.open(url, 'mywin', 'height=150,width=300') ;
       }
@@ -38,16 +38,21 @@
     }
     function checkForm(  ){
       var isCheck = document.myform.isCheck.value ;
+      var email = document.myform.email.value ;
+ 	 var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
       //alert( isCheck ) ;
       if( isCheck == 'false' ){
         alert('아이디 중복 체크를 우선 해주세용.') ;
         return false ;
       }
+      if( regex.test(email) === false) {
+   	   alert("잘못된 이메일 형식입니다.");
+          document.myform.email.focus() ; 
+          return false ;
       var url='<%=MyCtrlCommand%>totalcheck&id=' + id ; 
       window.open(url, 'mywin', 'height=150,width=300') ;
     }   
-    function function5() {
-    	
+  
     }
     
   </script>
