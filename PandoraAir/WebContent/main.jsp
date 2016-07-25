@@ -41,10 +41,6 @@ footer {
 		height: auto;
 	}
 }
-	/* .bgset{
-		background-image: url('./image/air1.jpg');
-	} */
-	
 
 
 </style>

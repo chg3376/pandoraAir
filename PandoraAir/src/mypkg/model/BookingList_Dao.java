@@ -50,30 +50,45 @@ public class BookingList_Dao extends SuperDao{
 		}
 		return cnt;
 	}
-	public List<BookingList> SelectDataList(int beginRow, int endRow) {
+	public List<BookingListJoin> SelectDataList(int beginRow, int endRow,String name) {
 		//모든 데이터를 조회한다.
 		PreparedStatement pstmt = null ;
 		ResultSet rs = null ;
 
-		String sql = "select id,name,password,salary,hiredate,gender,hobby,job,zipcode,address1,address2,mpoint, ranking "; 
-		sql += " from " ; 
-		sql += " ( " ;
-		sql += " select id,name,password,salary,hiredate,gender,hobby,job,zipcode,address1,address2,mpoint, rank() over( order by id asc ) as ranking " ;
-		sql += " from BookingList  " ;
-		sql += " ) " ;
-		sql += " where ranking between ? and ? " ; 
+		String sql = "select b.B_CODE, d.APLANE_NAME, d.M_ID, d.C_CODE,d.S_NUM, m.NAME,b.seat_list, a.CATEGORY, c.LOCAL, c.DESTINATION,s.P_DATE, s.DEPARTURE_TIME, s.ARRIVAL_TIME, s.LEAD_TIME, a.FARE, m.MPOINT"; 
+			sql+="from ((((bookinglist b inner join DATA_TERMINAL d";
+			sql+="on b.b_code=d.b_code)join MEMBERS m";
+			sql+="on d.m_id=m.id)join airplane a";
+			sql+="on d.aplane_name=a.AIRPLANE) join schedule s";
+			sql+="on d.S_NUM=s.SEQUENCE) join city c";
+			sql+="on d.C_CODE=c.CITY_CODE"; 
 		
-		List<BookingList> lists = new ArrayList<BookingList>();
+		List<BookingListJoin> lists = new ArrayList<BookingListJoin>();
 		try {
 			if( conn == null ){ super.conn = super.getConnection() ; }
 			pstmt = super.conn.prepareStatement(sql) ;			
-			pstmt.setInt(1, beginRow);
-			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery() ;			
 			while( rs.next() ){
-				BookingList bean = new BookingList();				
-				
-				
+				BookingListJoin bean = new BookingListJoin();
+				if(name.equals(rs.getString("name"))){
+					
+				}else{
+					break;
+				}
+				bean.setAplane_name(rs.getString("aplane_name"));
+				bean.setArrival_time(rs.getString("arrival_time"));
+				bean.setC_code(rs.getString("c_code"));
+				bean.setCategory(rs.getString("category"));
+				bean.setDeparture_tim(rs.getString("departure_tim"));
+				bean.setDestination(rs.getString("destination"));
+				bean.setFare(rs.getString("fare"));
+				bean.setLeadtim(rs.getString("leadtim"));
+				bean.setLocal(rs.getString("local"));
+				bean.setM_id(rs.getString("m_id"));
+				bean.setMpoint(rs.getString("mpoint"));
+				bean.setName(rs.getString("name"));
+				bean.setP_date(rs.getString("p_date"));
+				bean.setS_num(rs.getString("s_num"));
 				lists.add( bean ) ;
 			}
 		} catch (Exception e) {

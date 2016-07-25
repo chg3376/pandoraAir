@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mypkg.controller.SuperController;
-import mypkg.model.BookingList;
+import mypkg.model.BookingListJoin;
 import mypkg.model.BookingList_Dao;
 import mypkg.utility.Paging;
 
@@ -19,6 +19,7 @@ public class BookingListController implements SuperController {
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		BookingList_Dao bdao = new BookingList_Dao();
+		String name = request.getParameter("name");
 		String pageNumber = request.getParameter("pageNumber") ;
 		String pageSize = request.getParameter("pageSize") ;
 		int totalCount = bdao.SelectTotalCount(); //1008 ;
@@ -32,8 +33,8 @@ public class BookingListController implements SuperController {
 		Paging pageInfo = 
 				new Paging(pageNumber, pageSize, totalCount, myurl, mode, keyword) ;
 		
-		List<BookingList> lists 
-		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow()) ;		
+		List<BookingListJoin> lists 
+		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow(),name) ;		
 		
 		request.setAttribute("lists", lists);
 		request.setAttribute("pagingHtml", pageInfo.getPagingHtml());
