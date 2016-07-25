@@ -23,7 +23,9 @@ public class InsertController implements SuperController,Validator{
 			HttpServletResponse response) throws ServletException, IOException {
         this.request = request ; 
 
-		bean  = new Member();		
+		bean  = new Member();	
+		System.out.println(request.getParameter("id"));
+		System.out.println(request.getParameter("name"));
 		bean.setId( request.getParameter("id") );
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != "" ){
 			bean.setMpoint( Integer.parseInt( request.getParameter("mpoint") ));	
@@ -61,6 +63,7 @@ public class InsertController implements SuperController,Validator{
 		boolean isCheck = true ; //기본 값으로 true이고, 유효성 검사에 문제가 생기면 false으로 변경
 		
 		//Member err = new Member() ; 
+		System.out.println(bean.getName());
 		if( bean.getId().length() < 1 || bean.getId().length() > 15 ){
 			this.request.setAttribute( PREFIX + "id", "아이디는 4자리 이상 10자리 이하이어야 합니다.");
 			isCheck = false  ;
@@ -73,10 +76,7 @@ public class InsertController implements SuperController,Validator{
 			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
 			isCheck = false  ;
 		}
-		if( bean.getEmail().length() < 4 || bean.getPassword().length() > 20 ){
-			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
-			isCheck = false  ;
-		}
+	
 		return isCheck ;
 		
 	}
