@@ -11,20 +11,11 @@
 		
   	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html  style="width: 500px;">
+<html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-  <script src="./common/js/jquery-latest.js"></script>
-<link rel="stylesheet" type="text/css" href="./templates/default/js/ui.datepicker/css/smoothness/jquery-ui-1.7.2.custom.css">
-<script type="text/javascript" src="./templates/default/js/ui.datepicker/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
-<script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
-<script type="text/javascript"></script>
+
 <title>Insert title here</title>
 
 <script type="text/javascript">
@@ -40,14 +31,14 @@
 		
 	}	
 	
-	function goto1(){
+	function gotoGro1(){
 		document.getElementById('b1').className += ' on';
 		
-		location.href="<%=geturlGro.substring(0, 58)%>.jsp?menu1=2&menu2=1";
+		location.href="<%=geturlGro.substring(0, 33)%>main.jsp?menu1=2&menu2=1";
 	}
-	function goto2(){
+	function gotoGro2(){
 		
-		location.href="<%=geturlGro.substring(0, 58)%>.jsp?menu1=2&menu2=2";
+		location.href="<%=geturlGro.substring(0, 33)%>main.jsp?menu1=2&menu2=2";
 	}
 
 
@@ -260,15 +251,17 @@
 </style>
 </head>
 <body>
-
-	<img alt="??!" src="./section_select.jpg">
-	<label>국제선</label>
+	
+	
 
  	<div class="container">
 	<div class="collapse navbar-collapse" style=" width: 430px;">
   		<ul class="nav nav-tabs" style=" margin-top: 5px;">
-  		<input class="mw-ui-button" type="button" onclick="goto1()" id="b1" value="편도">
-		<input class="mw-ui-button" type="button" onclick="goto2()" id="b2" value="왕복">
+  		
+  		<img alt="??!" src="<%=geturlGro.substring(0, 33)%>view/booking/section_select.jpg">
+		<label>국제선</label><br>
+  		<input class="mw-ui-button" type="button" onclick="gotoGro1()" id="b1" value="편도">
+		<input class="mw-ui-button" type="button" onclick="gotoGro2()" id="b2" value="왕복">
   	
 		<!-- <input type="image" src="./oneWayOn.jpg" onclick="busw1()" id="b1">
 		<input type="image" src="./twoWayOff.jpg" onclick="busw1()" id="b2"> -->

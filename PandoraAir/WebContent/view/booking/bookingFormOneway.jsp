@@ -27,7 +27,7 @@
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html style="width: 500px;">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,19 +134,8 @@ color: #fff !important;
 							<button type="reset" class="btn btn-default">초기화</button>
 						</div>
 					</div>
-					
-
-					
 				</form>
 			</div>
-	
-        
-        
-
-        
-        
-        
-        
 
 </body>
 </html>

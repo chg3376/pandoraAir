@@ -37,7 +37,7 @@ public class LoginController implements SuperController {
 			request.setAttribute("errmsg", msg);
 		} else { // 존재하는 아이디
 			if (password.equals(bean.getPassword())) { // 비밀번호 맞음
-				url = "/main.jsp";
+				url = "/main.jsp?menu1=1&menu2=1";
 				msg = "로그인 성공.";
 				HttpSession session = request.getSession();
 				session.setAttribute("loginfo", bean);
