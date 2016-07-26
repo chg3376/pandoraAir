@@ -17,12 +17,11 @@ public class DeleteController implements SuperController {
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-		
-		FlowParameters parameters = new FlowParameters() ;
-		parameters.setKeyword( request.getParameter("keyword") ); 
-		parameters.setMode( request.getParameter("mode") ); 
-		parameters.setPageNumber( request.getParameter("pageNumber") );
-		parameters.setPageSize( request.getParameter("pageSize") );
+//		FlowParameters parameters = new FlowParameters() ;
+//		parameters.setKeyword( request.getParameter("keyword") ); 
+//		parameters.setMode( request.getParameter("mode") ); 
+//		parameters.setPageNumber( request.getParameter("pageNumber") );
+//		parameters.setPageSize( request.getParameter("pageSize") );
 		
 		MemberDao bdao = new MemberDao() ;
 		int cnt = -99999 ;
@@ -30,7 +29,7 @@ public class DeleteController implements SuperController {
 		
 		//url 변수 : /url패턴?command=커맨드이름&FlowParameters객체.toString()
 		
-		String url = "/MiniShopCtrl?command=boList&" + parameters.toString() ;  
+		String url ="/main.jsp";  
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);	
 	}
