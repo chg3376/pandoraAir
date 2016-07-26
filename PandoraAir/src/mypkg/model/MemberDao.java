@@ -60,7 +60,7 @@ public class MemberDao extends SuperDao{
 		System.out.println(bean.toString());
 		String sql = " update members set ";
 		sql += " name=?, password=?, lnum=?,";
-		sql += " phone=?, email=?, mpoint=?";
+		sql += " phone=?, email=?";
 		sql += " where id = ? ";
 		PreparedStatement pstmt = null;
 		int cnt = -99999;
@@ -71,13 +71,12 @@ public class MemberDao extends SuperDao{
 			conn.setAutoCommit(false);
 			pstmt = super.conn.prepareStatement(sql);
 			// 개발자가 수정할 곳 2 : ? 수정할 것
-			pstmt.setString(7, bean.getId());
+			pstmt.setString(6, bean.getId());
 			pstmt.setString(1, bean.getName());
 			pstmt.setString(2, bean.getPassword());
 			pstmt.setString(3, bean.getLnum());
 			pstmt.setString(4, bean.getPhone());
 			pstmt.setString(5, bean.getEmail());
-			pstmt.setInt(6, bean.getMpoint());
 
 			cnt = pstmt.executeUpdate();
 			conn.commit();

@@ -60,12 +60,9 @@
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <style type="text/css">
 	.logoloc{
@@ -78,6 +75,9 @@
 <script type="text/javascript">
 	function logout(){
 		location.href="<%=MyCtrlCommand1%>pdrLogout";
+	}
+	function insert(){
+		location.href="<%=MyCtrlCommand1%>pdrInsertForm";
 	}
 
 </script>
@@ -93,16 +93,23 @@
 					class="icon-bar"></span>
 			</button>
 			
-			<a href="<%=MyCtrlCommand1%>main.jsp"><img src="<%=contextPath1%>/image/pandora2.jpg"></a>
+			<a href="<%=MyCtrlCommand1%>pdrmain"><img src="<%=contextPath1%>/image/pandora2.jpg"></a>
 		</div>
 		
 			
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
-					<ul class="dropdown-menu">	
+			<ul class="nav navbar-nav">	
 						<c:if test="${whologin==1}">
-						<li><a href="">예매정보 확인</a></li>
+						<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
+					    <ul class="dropdown-menu">
+						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
+						<li><a class="allList" href="<%=MyCtrlCommand1%>pdrMemberUpdateForm&id=<%=loginfo.getId()%>">회원정보 수정</a></li>
+						<li><a href="">회원정보 탈퇴</a></li>
+						</c:if>
+						<c:if test="${whologin==2}">
+						<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
+					    <ul class="dropdown-menu">
+						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
 						<li><a href="">회원정보 수정</a></li>
 						<li><a href="">회원정보 탈퇴</a></li>
 						</c:if>
@@ -144,7 +151,7 @@
   									<button type="button" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
   									</c:if>
   									<c:if test="${whologin==0}">
- 									<button type="button" class="btn btn-nav" href="<%=MyCtrlCommand1%>AirplaneList"><b>회원가입</b></button>
+ 									<button type="button" class="btn btn-nav" onclick="insert()"><b>회원가입</b></button>
  									</c:if>
  								</div>
  							</div>

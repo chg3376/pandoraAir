@@ -8,7 +8,11 @@
 <script type="text/javascript" src="./templates/default/js/ui.datepicker/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
 <script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="./view/css/button1.css">
+<!-- button css -->
 <script type="text/javascript">
+
 $(function(e){
 		$('#btnSave').click(function() {
 		});
@@ -25,10 +29,42 @@ $(function(e){
       
 
  } );
+ 
+
 </script>
+<style type="text/css">
+.opera { 
+
+border : 1px solid #69A6E4; 
+
+color : #505050; 
+
+font-size : 15px; 
+
+font-weight : bold; 
+
+background-color : #e9e9e9; 
+
+} 
+
+.opera-hover { 
+
+border-color: #69A6E4; color: #505050; 
+
+} 
+
+.opera .current { 
+
+background-color: #808080 !important; 
+
+color: #fff !important; 
+
+} 
+
+.opera .menu { border: 1px solid #494949; } 
+</style>
 </head>
 <body>
-<input type="text" class="it validate-req" title="ë´ì¬ììì¼" name="startTerm" id="startTerm" value="" />
-<input type="text" class="it validate-req" title="ë´ì¬ì¢ë£ì¼" name="endTerm" id="endTerm" value="" />
+<input type="text" class="it validate-req opera" style="margin-left: 15px; height: 32px; width: 142px;" name="startTerm" id="startTerm" value="" />
 </body>
 </html>

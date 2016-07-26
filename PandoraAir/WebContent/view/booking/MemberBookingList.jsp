@@ -3,8 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="mypkg.model.Airplane"%>
 <%
-	int myoffset = 2;
-	int mywidth = twelve - 2 * myoffset;
+	int myoffset = 1;
+	int mywidth = twelve - 1 * myoffset;
 	int formleft = 3;
 	int formright = twelve - formleft;
 	int mysearch = 2;
@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -34,7 +35,7 @@
 </style>
 <script type="text/javascript">
 	function writeForm(){
-			location.href='<%=MyCtrlCommand1%>boInsertForm';
+			location.href='<%=MyCtrlCommand1%>bookingForm';
 	}
 	function search(){
 		if( $('#mode').val() == '-' ){
@@ -48,7 +49,7 @@
 	function searchAll(){
 		//$('#mode').val('-');
 		//$('#keyword').val('');
-		location.href='<%=MyCtrlCommand1%>boList';
+		location.href='<%=MyCtrlCommand1%>bookingForm';
 	}
 </script>
 </head>
@@ -65,7 +66,7 @@
 			<div class="panel panel-default panel-primary">
 				<div class="panel-heading">
 					<form class="form-inline" role="form">
-						<h2>비행기 목록</h2>
+						<h2>회원예약 목록</h2>
 					</form>
 				</div>
 				<table class="table table-striped table-hover">
@@ -73,10 +74,11 @@
 						<tr>
 							<th colspan="10" align="center">
 								<form class="form-inline" role="form" name="myform"
-									action="<%=MyCtrlCommand1%>boList" method="post">
+									action="<%=MyCtrlCommand1%>bookingForm" method="post">
 									<div class="form-group">
 										<select class="form-control" name="mode" id="mode">
-											<option value="all" selected="selected">--선택하세요---------
+											<option value="all" selected="selected">--
+												선택하세요---------
 											<option value="writer">작성자
 											<option value="subject">제목
 											<option value="content">글 내용
@@ -90,8 +92,6 @@
 										onclick="search();">검색</button>
 									<button class="btn btn-default btn-warning" type="button"
 										onclick="searchAll();">전체 검색</button>
-									<button class="btn btn-default btn-info" type="button"
-										onclick="writeForm();">비행기 정보 등록</button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<p class="form-control-static">${requestScope.pagingStatus}</p>
 								</form>
@@ -99,29 +99,40 @@
 						</tr>
 						<tr>
 							<th>편명</th>
+							<th>회원ID</th>
+							<th>도시코드</th>
+							<th>시퀀스</th>
+							<th>예매자</th>
 							<th>구분</th>
-							<th>정원</th>
+							<th>출발지</th>
+							<th>도착지</th>
+							<th>날짜</th>
+							<th>출발시간</th>
+							<th>도착시간</th>
+							<th>소요시간</th>
 							<th>운임요금</th>
 							<th>적립포인트</th>
-							<th>수정</th>
-							<th>삭제</th>
+							
 						</tr>
 					</thead>
 					<tr>
 					</tr>
 					<c:forEach var="bean" items="${requestScope.lists}">
 						<tr>
-							<td>${bean.airplane}</td>
+							<td>${bean.aplane_name}</td>
+							<td>${bean.m_id}</td>
+							<td>${bean.c_code}</td>
+							<td>${bean.s_num}</td>
+							<td>${bean.name}</td>
 							<td>${bean.category}</td>
-							<td>${bean.seat_qty}</td>
+							<td>${bean.local}</td>
+							<td>${bean.destination}</td>
+							<td>${bean.p_date}</td>
+							<td>${bean.departure_tim}</td>
+							<td>${bean.arrival_time}</td>
+							<td>${bean.lead_time}</td>
 							<td>${bean.fare}</td>
-							<td>${bean.saving_point}</td>
-							<td><a
-								href="<%=MyCtrlCommand1%>boUpdateForm&no=${bean.airplane}&${requestScope.parameters}">
-									수정 </a></td>
-							<td><a
-								href="<%=MyCtrlCommand1%>boDelete&no=${bean.airplane}&${requestScope.parameters}">
-									삭제 </a></td>
+							<td>${bean.mpoint}</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -148,3 +159,15 @@
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

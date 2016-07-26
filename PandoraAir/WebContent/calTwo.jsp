@@ -7,12 +7,11 @@
 <link rel="stylesheet" type="text/css" href="./templates/default/js/ui.datepicker/css/smoothness/jquery-ui-1.7.2.custom.css">
 <script type="text/javascript" src="./templates/default/js/ui.datepicker/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="./templates/default/js/kr.validate.js" language="javascript" type="text/javascript"></script>
-<script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="./templates/default/js/formValidate.js" language="javascript" type="text/javascript"></script>
 
-<link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
+<link type="text/css" rel="stylesheet" href="./view/css/button1.css">
+<!-- button css -->
+
 <script type="text/javascript">
 $(function(e){
 		$('#btnSave').click(function() {
@@ -64,7 +63,7 @@ color: #fff !important;
 </style>
 </head>
 <body>
-<input type="text" class="it validate-req opera" style="margin-left: 15px; height: 32px; width: 142px;" name="startTerm" id="startTerm" value="" />
-<input type="text" class="it validate-req opera" style="margin-left: 15px; height: 32px; width: 142px;" name="endTerm" id="endTerm" value="" />
+<input type="label" class="it validate-req opera" style="margin-left: 15px; height: 32px; width: 142px;" name="startTerm" id="startTerm" value="" />
+<input type="babep" class="it validate-req opera" style="margin-left: 15px; height: 32px; width: 142px;" name="endTerm" id="endTerm" value="" />
 </body>
 </html>

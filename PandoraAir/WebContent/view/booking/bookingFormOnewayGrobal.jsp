@@ -7,48 +7,81 @@
    
 <%@page import="java.text.DecimalFormat"%>
 	<%
-	String patternBF2 = "###,###";
-	DecimalFormat BF2 = new DecimalFormat(patternBF2);
-	int twelveBF2 = 12; //그리드 시스템의 숫자 값
+	String patternBF = "###,###";
+	DecimalFormat BF = new DecimalFormat(patternBF);
+	int twelveBF = 12; //그리드 시스템의 숫자 값
 	%>
     <%
-	int myoffsetBF2 = 1 ;
-	int mywidthBF2 = 5 * myoffsetBF2;
-	int formleftBF2 = 2 ;
-	int formrightBF2 = 9 - formleftBF2 ; //값 입력창 크기 변경
+	int myoffsetBF = 0 ;
+	int mywidthBF = 12;
+	int formleftBF = 2 ;
+	int formrightBF = 9 - formleftBF ; //값 입력창 크기 변경
 	%>
 	
 	
 	<%
-	String contextPathBF2 = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
-	String CommandNameBF2 = "/BookingCtrl"; //요청을 위한 url 패턴 이름
-	String MyCtrlByFormBF2 = contextPathBF2 + CommandNameBF2; //폼이 있는 경우에 사용된다. 
-	String MyCtrlCommandBF2 = contextPathBF2 + CommandNameBF2 + "?command=";
+	String contextPathBF = request.getContextPath(); //현재 진행 중인 프로젝트 이름 
+	String CommandNameBF = "/BookingCtrl"; //요청을 위한 url 패턴 이름
+	String MyCtrlByFormBF = contextPathBF + CommandNameBF; //폼이 있는 경우에 사용된다. 
+	String MyCtrlCommandBF = contextPathBF + CommandNameBF + "?command=";
 	//out.print( MyCtrlCommand + "<br>" ); // Model2/MiniShopCtrl?command=
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<link type="text/css" rel="stylesheet" href="./view/css/button1.css"><!-- button css -->
+<style type="text/css">
+
+.opera { 
+
+border : 1px solid #69A6E4; 
+
+color : #505050; 
+
+font-size : 15px; 
+
+font-weight : bold; 
+
+background-color : #e9e9e9; 
+
+} 
+
+.opera-hover { 
+
+border-color: #69A6E4; color: #505050; 
+
+} 
+
+.opera .current { 
+
+background-color: #808080 !important; 
+
+color: #fff !important; 
+
+} 
+
+.opera .menu { border: 1px solid #494949; } 
 
 
+
+
+
+</style>
+</script>
 </head>
 <body>
- 		
+ 			
 
-
-	<div class="panel-body sub_container">
-				<form id="myform" name="myform" class="form-horizontal" action="<%=MyCtrlByFormBF2%>" method="post">
+			<div class="panel-body sub_container">
+				<form id="myform" name="myform" class="form-horizontal" action="<%=MyCtrlByFormBF%>" method="post">
 					<input type="hidden" name="command" value="#">
 					
 					<div class="form-group">
-	        			<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
+	        			<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-1" id="section1-1" style=" width: 352px; height: 32px;">
 								<option value="인천" selected="selected">인천
 								<option value="김해">김해
@@ -58,7 +91,7 @@
 	        		</div>
 	        		
 	        		<div class="form-group">
-	        		<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
+	        		<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="section1-2" id="section1-2" style=" width: 352px; height: 32px;">
 								<option value="도쿄" selected="selected">도쿄
 								<option value="베이징">베이징
@@ -68,11 +101,11 @@
 	        		</div>
 	        		
 	        		<div class="form-group">
-	        			<%@ include file="./calTwo.jsp"%>
+	        			<%@ include file="./calOne.jsp"%>
 	        		</div>
 					
 					<div class="form-group">
-	        		<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
+	        		<div class="col-xs-<%=formrightBF-3%> col-lg-<%=formrightBF-3%>">
 	            			<select class="opera" name="persons" id="persons" style="height: 32px;">
 								<option value="-" selected="selected">-
 								<option value="1인">1인
@@ -86,8 +119,8 @@
 				
 					
 					<div class="form-group">
-						<div class="col-xs-<%=twelveBF2%> col-lg-<%=twelveBF2%>" align="center">
-							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>다음 페이지</b></button>
+						<div class="col-xs-<%=twelveBF%> col-lg-<%=twelveBF%>" align="center">
+							<button type="submit" class="btn btn-default"><b>다음 페이지</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="reset" class="btn btn-default">초기화</button>
 						</div>
@@ -97,6 +130,7 @@
 					
 				</form>
 			</div>
+	
         
         
 

@@ -13,7 +13,7 @@ public class BookingListJoin {
 	private String p_date;
 	private String departure_tim;
 	private String arrival_time;
-	private String leadtim;
+	private String lead_time;
 	private String fare;
 	private String mpoint;
 	public String getAplane_name() {
@@ -82,11 +82,11 @@ public class BookingListJoin {
 	public void setArrival_time(String arrival_time) {
 		this.arrival_time = arrival_time;
 	}
-	public String getLeadtim() {
-		return leadtim;
+	public String getLead_time() {
+		return lead_time;
 	}
-	public void setLeadtim(String leadtim) {
-		this.leadtim = leadtim;
+	public void setLead_time(String lead_time) {
+		this.lead_time = lead_time;
 	}
 	public String getFare() {
 		return fare;
@@ -107,7 +107,7 @@ public class BookingListJoin {
 				+ ", category=" + category + ", local=" + local
 				+ ", destination=" + destination + ", p_date=" + p_date
 				+ ", departure_tim=" + departure_tim + ", arrival_time="
-				+ arrival_time + ", leadtim=" + leadtim + ", fare=" + fare
+				+ arrival_time + ", leadtim=" + lead_time + ", fare=" + fare
 				+ ", mpoint=" + mpoint + "]";
 	}
 	
