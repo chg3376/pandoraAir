@@ -26,25 +26,11 @@ public class BookingListController extends HttpServlet implements SuperControlle
 		ServletContext sc = request.getServletContext();
 		
 		String name = (String)sc.getAttribute("loginName");
-		String pageNumber = request.getParameter("pageNumber") ;
-		String pageSize = request.getParameter("pageSize") ;
-		int totalCount = bdao.SelectTotalCount(); //1008 ;
-		System.out.println( "ÅäÅ» Ä«¿îÅÍ : " + totalCount);
-				
-		String contextPath = request.getContextPath()  ;
-		String myurl = contextPath + "/MiniShopCtrl?command=bookingList" ;
 		
-		String mode = null ;
-		String keyword = null ;
-		Paging pageInfo = 
-				new Paging(pageNumber, pageSize, totalCount, myurl, mode, keyword) ;
 		System.out.println(name);
-		List<BookingListJoin> lists 
-		= bdao.SelectDataList(pageInfo.getBeginRow(), pageInfo.getEndRow(),name) ;		
+		List<BookingListJoin> lists = bdao.SelectDataList(name) ;		
 		
 		request.setAttribute("lists", lists);
-		request.setAttribute("pagingHtml", pageInfo.getPagingHtml());
-		request.setAttribute("pagingStatus", pageInfo.getPagingStatus());
 		
 		String url = "/view/booking/MemberBookingList.jsp";  
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
