@@ -51,7 +51,7 @@ public class BookingList_Dao extends SuperDao{
 		}
 		return cnt;
 	}
-	public List<BookingListJoin> SelectDataList(int beginRow, int endRow,String name) {
+	public List<BookingListJoin> SelectDataList(String name) {
 		PreparedStatement pstmt = null ;
 		ResultSet rs = null ;
 
@@ -105,6 +105,10 @@ public class BookingList_Dao extends SuperDao{
 				bean.setS_num(rs.getString("s_num"));
 				System.out.println(bean.toString());;
 				lists.add( bean ) ;
+				
+			}
+			for(BookingListJoin booking:lists){
+				System.out.println(booking);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -78,37 +78,11 @@
 			<div class="panel panel-default panel-primary">
 				<div class="panel-heading">
 					<form class="form-inline" role="form">
-						<h2>City (임시)</h2>
+						<h2>운항 도시</h2>
 					</form>
 				</div>
 				<table class="table table-striped table-hover">
 					<thead>
-						<td colspan="10" align="center">
-							<form class="form-inline" role="form" name="myform"
-								action="<%=MyCtrlByForm2%>boList" method="get">
-								<div class="form-group">
-									<select class="form-control" name="mode" id="mode">
-										<option value="all" selected="selected">--
-											선택하세요---------
-										<option value="writer">도시코드
-										<option value="subject">출발지
-										<option value="content">도착지
-									</select>
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control btn-xs" name="keyword"
-										id="keyword" placeholder="검색 키워드">
-								</div>
-								<button class="btn btn-default btn-warning" type="submit"
-									onclick="search();">검색</button>
-								<button class="btn btn-default btn-warning" type="button"
-									onclick="searchAll();">전체 검색</button>
-								<button class="btn btn-default btn-info" type="button"
-									onclick="writeForm();">경로 추가</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<p class="form-control-static">${requestScope.pagingStatus}</p>
-							</form>
-						</td>
 						<tr>
 							<th>도시코드</th>
 							<th>출발지</th>

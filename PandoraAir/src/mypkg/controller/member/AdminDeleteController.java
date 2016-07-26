@@ -1,18 +1,18 @@
 package mypkg.controller.member;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import mypkg.controller.SuperController;
+import mypkg.model.Member;
 import mypkg.model.MemberDao;
-import mypkg.utility.FlowParameters;
 
-public class DeleteController implements SuperController {
+public class AdminDeleteController implements SuperController {
 
 	@Override
 	public void doProcess(HttpServletRequest request,
@@ -28,9 +28,13 @@ public class DeleteController implements SuperController {
 		int cnt = -99999 ;
 		cnt = bdao.DeleteData(id) ;
 		
-		HttpSession session = request.getSession() ; 
-		session.invalidate(); //세션을 비우기. 
-		String url ="/main.jsp";
+		MemberDao mdao = new MemberDao();
+		
+		List<Member> lists = mdao.SelectDataList();
+		
+		request.setAttribute("lists", lists);
+		
+		String url = "view/member/memberList.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);	
 	}

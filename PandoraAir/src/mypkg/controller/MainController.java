@@ -12,7 +12,6 @@ public class MainController implements SuperController {
 	@Override
 	public void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("여기오나?");
 		System.out.println( this.getClass() );
 		
 		String url = "/main.jsp";

@@ -69,34 +69,6 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th colspan="10" align="center">
-								<form class="form-inline" role="form" name="myform"
-									action="<%=MyCtrlCommand1%>boList" method="post">
-									<div class="form-group">
-										<select class="form-control" name="mode" id="mode">
-											<option value="all" selected="selected">--
-												선택하세요---------
-											<option value="writer">작성자
-											<option value="subject">제목
-											<option value="content">글 내용
-										</select>
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control btn-xs" name="keyword"
-											id="keyword" placeholder="검색 키워드">
-									</div>
-									<button class="btn btn-default btn-warning" type="submit"
-										onclick="search();">검색</button>
-									<button class="btn btn-default btn-warning" type="button"
-										onclick="searchAll();">전체 검색</button>
-									<button class="btn btn-default btn-info" type="button"
-										onclick="writeForm();">운항 스케줄 등록</button>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<p class="form-control-static">${requestScope.pagingStatus}</p>
-								</form>
-							</th>
-						</tr>
-						<tr>
 							<th>시퀀스NO</th>
 							<th>편명</th>
 							<th>도시코드</th>

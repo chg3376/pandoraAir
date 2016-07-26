@@ -16,7 +16,7 @@ public class InsertController implements SuperController,Validator{
 
 	private HttpServletRequest request ;
 	private Member bean = null ;
-
+	private String password2 = "";
 	
 	@Override
 	public void doProcess(HttpServletRequest request,
@@ -24,8 +24,6 @@ public class InsertController implements SuperController,Validator{
         this.request = request ; 
 
 		bean  = new Member();	
-		System.out.println(request.getParameter("id"));
-		System.out.println(request.getParameter("name"));
 		bean.setId( request.getParameter("id") );
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != "" ){
 			bean.setMpoint( Integer.parseInt( request.getParameter("mpoint") ));	
@@ -33,17 +31,20 @@ public class InsertController implements SuperController,Validator{
 		bean.setEmail(request.getParameter("email"));
 		bean.setLnum(request.getParameter("lnum"));
 		bean.setPhone(request.getParameter("phone"));
-		bean.setName( request.getParameter("name") );
-		bean.setPassword( request.getParameter("password") );
+		bean.setName( request.getParameter("name"));
+		bean.setPassword( request.getParameter("password"));
 		if( request.getParameter("mpoint") != null && request.getParameter("mpoint") != ""){
-			bean.setMpoint( Integer.parseInt( request.getParameter("mpoint") ));	
+			bean.setMpoint(Integer.parseInt( request.getParameter("mpoint")));	
 		}
 		
 		System.out.println( bean );
 		
+		password2 = request.getParameter("password2") ;
+		System.out.println(password2 + "@@");
+		
 		String url = "";
 		if ( this.validate() == false ) {
-			url = "/main.jsp";  
+			url = "/member/InsertForm.jsp";  
 			this.request.setAttribute("bean", bean);
 		}else{
 			url = "/main.jsp";
@@ -74,6 +75,10 @@ public class InsertController implements SuperController,Validator{
 		}
 		if( bean.getPassword().length() < 4 || bean.getPassword().length() > 20 ){
 			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
+			isCheck = false  ;
+		}
+		if( !bean.getPassword().equals(password2)) {
+			this.request.setAttribute( PREFIX + "password2", "비밀번호가 다릅니다.");
 			isCheck = false  ;
 		}
 	
