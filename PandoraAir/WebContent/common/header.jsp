@@ -144,7 +144,7 @@
   									<button type="button" class="btn btn-nav"  onclick="logout()"><b>로그아웃</b></button>
   									</c:if>
   									<c:if test="${whologin==0}">
- 									<button type="button" class="btn btn-nav"><b>회원가입</b></button>
+ 									<button type="button" class="btn btn-nav" href="<%=MyCtrlCommand1%>AirplaneList"><b>회원가입</b></button>
  									</c:if>
  								</div>
  							</div>
