@@ -51,7 +51,7 @@ public class BookingList_Dao extends SuperDao{
 		}
 		return cnt;
 	}
-	public List<BookingListJoin> SelectDataList(int beginRow, int endRow,String name) {
+	public List<BookingListJoin> SelectDataList(String name) {
 		PreparedStatement pstmt = null ;
 		ResultSet rs = null ;
 

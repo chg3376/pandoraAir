@@ -110,7 +110,7 @@
 						<li class="dropdown-toggle"><a href="" class="dropdown-toggle" data-toggle="dropdown"><font size="6">회원 정보 <b class="caret"></b></font></a>
 					    <ul class="dropdown-menu">
 						<li><a class="allList" href="<%=MyCtrlCommand1%>bookingList">예매정보 확인</a></li>
-						<li><a href="">전체 회원정보 수정</a></li>
+						<li><a class="allList" href="<%=MyCtrlCommand1%>pdrMemberList">전체 회원정보</a></li>
 						</c:if>
 					</ul>
 				</li>
