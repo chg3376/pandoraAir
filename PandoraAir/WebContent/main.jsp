@@ -86,8 +86,7 @@ footer {
 		location.href="<%=geturl%>?menu1=1&menu2=1";
 	}
 	function goto2(){
-		location.href="<%=geturl%>
-	?menu1=2&menu2=1";
+		location.href="<%=geturl%>?menu1=2&menu2=1";
 	}
 </script>
 </head>
