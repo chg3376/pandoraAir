@@ -22,7 +22,7 @@
 
 	<div class="col-sm-10 bgset">
 		<div class="image">
-			<img src="http://localhost:8888/PandoraAir/image/countryTour.jpg" alt="countryTour" width="780" height="720">
+			<img src="http://localhost:8888/PandoraAir/image/usePoint.jpg" alt="usePoint" width="840" height="750">
 		</div>
 	</div>
 </body>

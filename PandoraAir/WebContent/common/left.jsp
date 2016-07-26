@@ -18,7 +18,7 @@
 	margin-top: 100px;
 	margin-bottom: 100%;
 }
-.dropdown-toggle, .dobook{
+.dropdown-toggle, .mpoint, .event{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font: sans-serif;
@@ -46,12 +46,16 @@
 				</ul>
 			</li>
 			</c:if>
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">여행 상품<span class="caret"></span></a>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">여행상품<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a class="allList" href="<%=MyCtrlCommand%>pdrCountryTour">국내 여행</a></li>
 					<li><a class="allList" href="<%=MyCtrlCommand%>pdrAboardTour">해외 여행</a></li>
 				</ul>
 			</li>
+			<c:if test="${whologin==1}">
+			<li><a class="mpoint" href="<%=MyCtrlCommand%>pdrMpointUse">마일리지</a></li>
+			</c:if>
+			<li><a class="event" href="<%=MyCtrlCommand%>pdrEvent">이벤트</a></li>
 		</ul>
 	</nav>
 </body>
