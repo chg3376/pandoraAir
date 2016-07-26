@@ -38,7 +38,7 @@
 	<nav class="navbar navbar-inverse" style=" width: 192px;">
 		<ul class="leftul">
 			<c:if test="${whologin==2 }">
-			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">비행정보<span class="caret"></span></a>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">관리 목록<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a class="allList" href="<%=MyCtrlCommand%>AirplaneList">비행기 목록</a></li>
 					<li><a class="allList" href="<%=MyCtrlCommand%>CityList">도시 목록</a></li>
@@ -46,8 +46,11 @@
 				</ul>
 			</li>
 			</c:if>
-			<li>
-				<a class="dobook" href="#">예매 하기</a>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">여행 상품<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a class="allList" href="<%=MyCtrlCommand%>pdrCountryTour">국내 여행</a></li>
+					<li><a class="allList" href="<%=MyCtrlCommand%>pdrAboardTour">해외 여행</a></li>
+				</ul>
 			</li>
 		</ul>
 	</nav>
