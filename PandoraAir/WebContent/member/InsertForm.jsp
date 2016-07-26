@@ -20,45 +20,54 @@
 </style>
 <script type="text/javascript">
      
-    function function1(  ){
-      var id = document.myform.id.value ;
+    function function1(){
+   
+    	
+       var id = document.myform.id.value ;
       if( id.length == 0 ){
         alert('아이디를 입력해 주세요') ;
         document.myform.id.focus() ; 
         return false ;
       }else{
-         var url='<%=MyCtrlCommand1%>idCheck&id=' + id ; 
-         window.open(url, 'mywin', 'height=150,width=300') ;
-      }
-    }
-    function function3(  ){
-      document.myform.isCheck.value = false ;      
-    }
-    function checkForm(){
-    var id = document.myform.id.value ;
-      var email = document.myform.email.value ;
-      var lnum =  document.myform.lnum.value;
-      var name = document.myform.name.value ;
-      var password = document.myform.password.value ;
-     var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-      //alert( isCheck ) ;
-      if( isCheck == 'false' ){
-        alert('아이디 중복 체크를 우선 해주세용.') ;
-        return false ;
-      }else if(name.length == 0){
-         alert('이름을 입력해 주세요') ;
-          document.myform.name.focus() ; 
-          return false ;
-      }else if(password.length == 0){
-         alert('비밀번호를 입력해 주세요') ;
-          document.myform.password.focus() ; 
-          return false ;
-      }else if( regex.test(email) === false) {
-         alert("잘못된 이메일 형식입니다.");
-          document.myform.email.focus() ; 
-          return false ;
-      }
+         var url='<%=MyCtrlCommand1%>idCheck&id=' + id;
+			window.open(url, 'mywin', 'height=150,width=300');
+		}
 	}
+	function function3() {
+		document.myform.isCheck.value = false;
+	}
+	function checkForm() {
+		var id = document.myform.id.value;
+		var email = document.myform.email.value;
+		var lnum = document.myform.lnum.value;
+		var name = document.myform.name.value;
+		var password = document.myform.password.value;
+		var password2 = document.myform.password2.value;
+		var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+		//alert( isCheck ) ;
+		if (isCheck == 'false') {
+			alert('아이디 중복 체크를 우선 해주세용.');
+			return false;
+		} else if (name.length == 0) {
+			alert('이름을 입력해 주세요');
+			document.myform.name.focus();
+			return false;
+		} else if (password.length == 0) {
+			alert('비밀번호를 입력해 주세요');
+			document.myform.password.focus();
+			return false;
+		} else if (password != password2) {
+			alert("잘못된 비밀번호 입니다.");
+			document.myform.password2.focus();
+			return false;
+		} else if (regex.test(email) === false) {
+			alert("잘못된 이메일 형식입니다.");
+			document.myform.email.focus();
+			return false;
+		}
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -87,7 +96,8 @@
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">아이디</label>
 							<div class="col-xs-<%=formright - 2%> col-lg-<%=formright - 2%>">
 								<input type="text" name="id" id="id" class="form-control"
-									placeholder="아이디" value="${requestScope.bean.id}" onkeyup="function3();"> <span class="err">${errid}</span>
+									placeholder="아이디" value="${requestScope.bean.id}"
+									onkeyup="function3();"> <span class="err">${errid}</span>
 							</div>
 							<div class="col-xs-<%=2%> col-lg-<%=2%>" align="left">
 								<input type="button" class="btn btn-info" value="중복 검사"
@@ -100,7 +110,8 @@
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">이름</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="text" name="name" id="name" class="form-control"
-									placeholder="이름" value="${requestScope.bean.name}"> <span class="err">${errname}</span>
+									placeholder="이름" value="${requestScope.bean.name}"> <span
+									class="err">${errname}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -109,9 +120,23 @@
 								번호</label>
 							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
 								<input type="password" name="password" id="password"
-									class="form-control" placeholder="비밀 번호를 넣어 주셔요" value="${requestScope.bean.password}"> <span class="err">${errpassword}</span>
+									class="form-control" placeholder="비밀 번호를 넣어 주셔요"
+									value="${requestScope.bean.password}"> <span
+									class="err">${errpassword}</span>
 							</div>
 						</div>
+						<div class="form-group">
+							<label for="password"
+								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">비밀
+								번호 재입력</label>
+							<div class="col-xs-<%=formright%> col-lg-<%=formright%>">
+								<input type="password" name="password2" id="password2"
+									class="form-control" placeholder="비밀 번호를 다시 넣어 주셔요"> 
+									<span class="err">${errpassword2}</span>
+
+							</div>
+						</div>
+
 						<div class="form-group">
 							<label for="lnum"
 								class="col-xs-<%=formleft%> col-lg-<%=formleft%> control-label">주민
@@ -144,7 +169,8 @@
 
 						<div class="form-group">
 							<div class="col-xs-<%=twelve%> col-lg-<%=twelve%>" align="center">
-								<button type="submit" class="btn btn-default" onclick="checkForm()">
+								<button type="submit" class="btn btn-default"
+									onclick="checkForm()">
 									<b>회원 가입</b>
 								</button>
 								&nbsp;&nbsp;&nbsp;&nbsp;

@@ -16,7 +16,7 @@ public class InsertController implements SuperController,Validator{
 
 	private HttpServletRequest request ;
 	private Member bean = null ;
-
+	private String password2 = "";
 	
 	@Override
 	public void doProcess(HttpServletRequest request,
@@ -38,6 +38,9 @@ public class InsertController implements SuperController,Validator{
 		}
 		
 		System.out.println( bean );
+		
+		password2 = request.getParameter("password2") ;
+		System.out.println(password2 + "@@");
 		
 		String url = "";
 		if ( this.validate() == false ) {
@@ -72,6 +75,10 @@ public class InsertController implements SuperController,Validator{
 		}
 		if( bean.getPassword().length() < 4 || bean.getPassword().length() > 20 ){
 			this.request.setAttribute( PREFIX + "password", "비밀 번호는 4자리 이상 10자리 이하이어야 합니다.");
+			isCheck = false  ;
+		}
+		if( !bean.getPassword().equals(password2)) {
+			this.request.setAttribute( PREFIX + "password2", "비밀번호가 다릅니다.");
 			isCheck = false  ;
 		}
 	
