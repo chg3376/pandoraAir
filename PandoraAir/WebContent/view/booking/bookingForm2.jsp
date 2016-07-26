@@ -1,3 +1,5 @@
+<%@ include file="./../../common/header.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -38,38 +40,53 @@
 
 </head>
 <body>
+
+		
  		<div id="main_container" align="center" class="container col-xs-offset-<%=myoffsetBF%> col-lg-offset-<%=myoffsetBF%> col-xs-<%=mywidthBF%> col-lg-<%=mywidthBF%>"> 
 		
 		
-		<h2>왕복</h2>
 		<div class="panel panel-primary sub_container">
 		
 			<div class="panel-heading" align="left">
-				<font color="red"><b>구간 1 : ${requestScope.local1} - ${requestScope.destination1}</b></font>
-				<font color="blue"><b>구간 2 : ${requestScope.local2} - ${requestScope.destination2}</b></font>
+				<%-- <font color="red"><b>출발지 : ${requestScope.local1} - ${requestScope.destination1}</b></font>
+				<font color="blue"><b>목적지 : ${requestScope.local2} - ${requestScope.destination2}</b></font> --%>
 			</div>
 			
 			<table class="table table-striped table-hover">
 				<thead>
 					
 					<tr>
+						<th>운항일자</th>
 						<th>편명</th>
+						<th>출발지</th>
+						<th>도착지</th>
 						<th>출발시간</th>
 						<th>도착시간</th>
-						<th>운임요금</th>
+						
 					</tr>
 					
 				</thead>
 				<tr>
 				</tr>
 					<tr>
-						<td>${bean.airplane}</td>
+						<td>${bean.p_date}</td>
+						<td>${bean.airplane_name}</td>
+						<td>${bean.local}</td>
+						<td>${bean.destination}</td>
 						<td>${bean.departure_time}</td>
 						<td>${bean.arrival_time}</td>
-						<td>${bean.fare}</td>
+						
 					</tr>
+					
+	<!-- 	bean.setAirplane_name(airplane_name);
+			bean.setArrival_time(arrival_time);
+			bean.setDeparture_time(departure_time);
+			bean.setDestination(destination);
+			bean.setLocal(local);
+			bean.setP_date(today); -->
 			</table>
 			
+			<input type="button" value="좌석 선택하러 가기" onclick="window.open("<%=MyCtrlCommand1%>pdrmain", "window", "width=500", height=300")">
 		</div>		
 	</div>
 

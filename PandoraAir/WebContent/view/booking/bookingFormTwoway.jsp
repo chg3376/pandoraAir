@@ -44,8 +44,8 @@
 
 
 	<div class="panel-body sub_container">
-				<form id="myform" name="myform" class="form-horizontal" action="<%=MyCtrlByFormBF2%>" method="post">
-					<input type="hidden" name="command" value="#">
+				<form id="myform" name="myform" class="form-horizontal" action="<%=MyCtrlCommandBF2%>pdrBookingForm1" method="post">
+					<!-- <input type="hidden" name="?command=" value="pdrBookingForm1"> -->
 					
 					<div class="form-group">
 	        			<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
@@ -87,7 +87,7 @@
 					
 					<div class="form-group">
 						<div class="col-xs-<%=twelveBF2%> col-lg-<%=twelveBF2%>" align="center">
-							<button type="submit" class="btn btn-default" onclick="return checkForm();"><b>다음 페이지</b></button>
+							<button type="submit" class="btn btn-default"><b>다음 페이지</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="reset" class="btn btn-default">초기화</button>
 						</div>

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleDao extends SuperDao {
+	
+	
 
 	public int InsertData(Schedule bean) {
 		System.out.println(bean.toString());
@@ -177,6 +179,49 @@ public class ScheduleDao extends SuperDao {
 		}
 
 		return lists;
+	}
+	
+	public Schedule SelectDataList(String citycode) {
+		// 모든 데이터를 조회한다.
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = " select * from schedule where city_code = ? ";
+		Schedule bean = new Schedule();
+		try {
+			if (conn == null) {
+				super.conn = super.getConnection();
+			}
+			conn.setAutoCommit(false);
+			pstmt = super.conn.prepareStatement(sql);
+			// 개발자가 수정할 곳 2 : ? 수정할 것
+			pstmt.setString(1, citycode);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				bean.setSequence(rs.getInt("sequence"));
+				bean.setAplane_name(rs.getString("aplane_name"));
+				bean.setArrival_time(rs.getString("arrival_time"));
+				bean.setCity_code(rs.getString("city_code"));
+				bean.setDeparture_time(rs.getString("departure_time"));
+				bean.setLead_time(rs.getString("lead_time"));
+				bean.setP_date(rs.getString("p_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return bean;
 	}
 	
 	public int extractSeqnum(Schedule bean){

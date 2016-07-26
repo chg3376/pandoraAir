@@ -76,11 +76,16 @@ footer {
 	}
 	
 	#c2{
-	
-    width: 954px;
-	}
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 933px;
 
-</style>
+    
+	}
+	#bgset{
+	    padding-left: 0px;
+	}
+	</style>
 <script type="text/javascript">
 
 	function goto1(){
@@ -101,10 +106,10 @@ footer {
 			
 				<%@ include file="./common/left.jsp" %>
 
-			<br>
+			
 			</div>
 
-			<div class="col-sm-10 bgset" >
+			<div class="col-sm-10 bgset" id="bgset">
 				<!-- <div class="container">
   					<img src="./image/air1.jpg">
   					
@@ -114,7 +119,6 @@ footer {
 			<div class="image">
 
                <div class="container" id="c2">
-  <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

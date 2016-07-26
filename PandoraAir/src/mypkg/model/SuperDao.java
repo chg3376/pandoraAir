@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class SuperDao {
 	protected Connection conn = null;
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@192.168.10.18:1521:xe";
+	private String url = "jdbc:oracle:thin:@localhost:1521:xe";//192.168.10.18
 	private String id = "pandora";
 	private String password = "oracle";
 	

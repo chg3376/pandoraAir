@@ -173,4 +173,39 @@ public class Data_terminalDao extends SuperDao{
 
 		return lists;
 	}
+	
+	
+	public int SelectDataqty() {
+		// 모든 데이터를 조회한다.
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = " select count(*) from DATA_TERMINAL ";
+		int cnt = 0;
+		try {
+			if (conn == null) {
+				super.conn = super.getConnection();
+			}
+			pstmt = super.conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cnt = Integer.parseInt(rs.getString("count(*)"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return cnt;
+	}
 }

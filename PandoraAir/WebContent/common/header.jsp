@@ -68,7 +68,10 @@
 	.logoloc{
 		margin-top: -30px;
 	}
-
+	#nn-i1{
+	height: 103px;
+	margin-bottom: 0px;
+	}
 
 </style>
 
@@ -84,7 +87,7 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse" style="height: 103px;">
+	<nav class="navbar navbar-inverse" id="nn-i1">
 	<div class="container-fluid" style=" padding-left: 0px;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"

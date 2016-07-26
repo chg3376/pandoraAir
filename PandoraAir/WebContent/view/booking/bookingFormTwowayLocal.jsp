@@ -50,7 +50,7 @@
 					<div class="form-group">
 	        			<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
 	            			<select class="opera" name="section1-1" id="section1-1" style=" width: 352px; height: 32px;">
-								<option value="인천" selected="selected">인천
+								<option value="인천">인천
 								<option value="김해">김해
 								<option value="제주">제주
 							</select>
@@ -60,9 +60,7 @@
 	        		<div class="form-group">
 	        		<div class="col-xs-<%=formrightBF2-3%> col-lg-<%=formrightBF2-3%>">
 	            			<select class="opera" name="section1-2" id="section1-2" style=" width: 352px; height: 32px;">
-								<option value="도쿄" selected="selected">도쿄
-								<option value="베이징">베이징
-								<option value="마닐라">마닐라
+								
 							</select>
 	        			</div>
 	        		</div>
